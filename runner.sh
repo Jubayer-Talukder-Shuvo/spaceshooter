@@ -16,16 +16,27 @@ mkdir -p bin obj
 if [[ "$OSTYPE" == "linux-gnu"* ]]
 then
     # Compile the source file to an object file
+<<<<<<< HEAD
     g++ -w -fexceptions -g -I. -IOpenGL/include -IOpenGL/include/SDL2 -IOpenGL/include/Freetype -c "$SOURCE_FILE" -o obj/object.o
 
     # Link the object file to create the executable
     g++ -o bin/opengl obj/object.o -lGL -lGLU -lglut -pthread -lSDL2 -lSDL2main -lSDL2_mixer -lfreetype
+=======
+    g++ -w -fexceptions -g -I. -IOpenGL/include -IOpenGL/include/SDL2 -c "$SOURCE_FILE" -o obj/object.o
+
+    # Link the object file to create the executable
+    g++ -o bin/opengl obj/object.o -lGL -lGLU -lglut -pthread -lSDL2 -lSDL2main -lSDL2_mixer
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 
     echo "Finished building."
 
     ./bin/opengl
 else
+<<<<<<< HEAD
     g++ -w -fexceptions -g -I. -IOpenGL/include -IOpenGL/include/SDL2 "$SOURCE_FILE" -o bin/opengl.exe -static-libgcc -static-libstdc++ -lmingw32 -lSDL2main -lSDL2 -lSDL2_mixer -lOpenGL32 -lfreeglut -lfreetype
+=======
+    g++ -w -fexceptions -g -I. -IOpenGL/include -IOpenGL/include/SDL2 "$SOURCE_FILE" -o bin/opengl.exe -static-libgcc -static-libstdc++ -lmingw32 -lSDL2main -lSDL2 -lSDL2_mixer -lOpenGL32 -lfreeglut
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     echo "Finished building."
     ./bin/opengl.exe
 fi
@@ -33,4 +44,8 @@ fi
 
 
 
+<<<<<<< HEAD
 # Run the executable
+=======
+# Run the executable
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d

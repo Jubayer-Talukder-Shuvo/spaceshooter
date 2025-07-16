@@ -18,7 +18,10 @@
 					<Add directory="." />
 					<Add directory="OpenGL/include" />
 					<Add directory="OpenGL/include/SDL2" />
+<<<<<<< HEAD
 					<Add directory="OpenGL/include/Freetype" />
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 				</Compiler>
 				<Linker>
 					<Add option="-static-libgcc -static-libstdc++" />
@@ -29,8 +32,12 @@
 					<Add library="SDL2_mixer" />
 					<Add library="OPENGL32" />
 					<Add library="freeglut" />
+<<<<<<< HEAD
 					<Add library="winmm" />		
 					<Add library="freetype" />					
+=======
+					<Add library="winmm" />					
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 				</Linker>
 			</Target>
 		</Build>

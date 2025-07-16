@@ -60,7 +60,11 @@ void iMouse(int button, int state, int mx, int my)
 	function iKeyboard() is called whenever the user hits a key in keyboard.
 	key- holds the ASCII value of the key pressed.
 */
+<<<<<<< HEAD
 void iKeyboard(unsigned char key, int state)
+=======
+void iKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 
 	// place your codes for other keys here
@@ -75,7 +79,11 @@ void iKeyboard(unsigned char key, int state)
 	GLUT_KEY_LEFT, GLUT_KEY_UP, GLUT_KEY_RIGHT, GLUT_KEY_DOWN, GLUT_KEY_PAGE UP,
 	GLUT_KEY_PAGE DOWN, GLUT_KEY_HOME, GLUT_KEY_END, GLUT_KEY_INSERT
 */
+<<<<<<< HEAD
 void iSpecialKeyboard(unsigned char key, int state)
+=======
+void iSpecialKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 
 	if (key == GLUT_KEY_END)
@@ -99,6 +107,10 @@ int main(int argc, char *argv[])
 {
 	glutInit(&argc, argv);
 	loadResources();
+<<<<<<< HEAD
 	iOpenWindow(900, 450, "ImageDemp");
+=======
+	iInitialize(900, 450, "ImageDemp");
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 	return 0;
 }

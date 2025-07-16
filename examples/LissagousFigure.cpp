@@ -30,6 +30,7 @@ int Curve2 = XAxis;
 
 double t = 0;
 
+<<<<<<< HEAD
 void iDashedLine(double x1, double y1, double x2, double y2)
 {
 
@@ -63,6 +64,8 @@ void iDashedLine(double x1, double y1, double x2, double y2)
     }
 }
 
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 void iDraw(void)
 {
     glClear(GL_COLOR_BUFFER_BIT);
@@ -150,11 +153,26 @@ void iMouseMove(int mx, int my)
     // place your codes here
 }
 
+<<<<<<< HEAD
+=======
+/*
+    function iMouseMove() is called automatically when the mouse pointer is in motion
+*/
+void iMouseMove(int mx, int my)
+{
+    // place your code here
+}
+
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 void iMouseWheel(int dir, int mx, int my)
 {
 }
 
+<<<<<<< HEAD
 void iKeyboard(unsigned char key, int state)
+=======
+void iKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 
     if (key == 'q')
@@ -162,12 +180,24 @@ void iKeyboard(unsigned char key, int state)
     glutPostRedisplay();
 }
 
+<<<<<<< HEAD
 void iSpecialKeyboard(unsigned char key, int state)
+=======
+void iSpecialKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 }
 
 int main(int argc, char *argv[])
 {
+<<<<<<< HEAD
     glutInit(&argc, argv);
     iOpenWindow(1920, 1080, "Graph");
+=======
+
+    glutInit(&argc, argv);
+    iInitialize(1920, 1080, "Graph");
+    glutFullScreen();
+    glutMainLoop();
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }

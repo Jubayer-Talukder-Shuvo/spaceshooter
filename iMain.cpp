@@ -4,8 +4,11 @@
 #include <time.h>
 #include <cstdlib>
 #include <algorithm>
+<<<<<<< HEAD
 #include <iostream>
 #include "iFont.h"
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 
 bool ishomepageactive = true;
 bool isgamerunning = false;
@@ -39,10 +42,18 @@ bool hasgamebeenwon = false;
 
 bool showendgamescreen = false;
 int endgametimercounter = 0;
+<<<<<<< HEAD
 const int end_screen_timer_ticks = 200; // Changed from 60 to 240 for ~4 seconds
 
 const int regular_enemy_base_health_hits =5;
 const int boss_enemy_base_health_hits = 10;
+=======
+const int end_screen_timer_ticks = 500; // Changed from 60 to 240 for ~4 seconds
+
+
+const int regular_enemy_base_health_hits = 2;
+const int boss_enemy_base_health_hits = 5;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 const int regular_enemy_health_increase_per_5_kills = 1;
 const int boss_health_increase_per_10_kills = 1;
 
@@ -585,15 +596,19 @@ void rungamelogicanddisplay()
     }
 }
 
+<<<<<<< HEAD
 bool play_button_color=false;
 bool instruction_button_color=false;
 bool credits_button_color=false;
 bool exit_button_color=false;
 
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 void showgamehomepage()
 {
     iShowLoadedImage(0, 0, &backgroundimage);
     iSetColor(240, 240, 240);
+<<<<<<< HEAD
     // iTextAdvanced(480, 550, "SPACE SHOOTER", 0.5, 7.5);
     iShowText(560, 550, "SPACE SHOOTER", "assets/fonts/RubikDoodleShadow-Regular.ttf", 48);
     if(play_button_color==true){
@@ -628,6 +643,23 @@ void showgamehomepage()
     // iTextAdvanced(screenwidth / 2 - 215, screenheight - 485-50, "QUIT", 0.3, 5);
     iShowText(screenwidth / 2 - 215, screenheight - 485-50,  "QUIT", "assets/fonts/Monoton-Regular.ttf", 35);
     // iShowImage(screenwidth / 2 - 250, screenheight - 510, "SelectedAssets/Quit.png");
+=======
+    iTextAdvanced(480, 550, "SPACE SHOOTER", 0.5, 7.5);
+
+    iSetColor(0, 0, 0);
+
+    iTextAdvanced(screenwidth / 2 - 190, screenheight - 275, "PLAY", 0.2, 1);
+    iShowImage(screenwidth / 2 - 250, screenheight - 300, "SelectedAssets/start.png");
+
+    iTextAdvanced(screenwidth / 2 - 225, screenheight - 345, "INSTRUCTIONS", 0.15, 1);
+    iShowImage(screenwidth / 2 - 250, screenheight - 370, "SelectedAssets/start.png");
+
+    iTextAdvanced(screenwidth / 2 - 190, screenheight - 415, "CREDITS", 0.15, 1);
+    iShowImage(screenwidth / 2 - 250, screenheight - 440, "SelectedAssets/start.png");
+
+    iTextAdvanced(screenwidth / 2 - 190, screenheight - 485, "QUIT", 0.15, 1);
+    iShowImage(screenwidth / 2 - 250, screenheight - 510, "SelectedAssets/Quit.png");
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 void showgameinstructions()
@@ -715,6 +747,7 @@ void iDraw()
 
 void iMouseMove(int mousex, int mousey)
 {
+<<<<<<< HEAD
     if(ishomepageactive==true){
         if(703<=mousex && mousex<=793 && 426<=mousey && mousey<=457){
             play_button_color=true;
@@ -732,6 +765,8 @@ void iMouseMove(int mousex, int mousey)
         }
     }
     
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 void iMouseDrag(int mousex, int mousey)
@@ -742,10 +777,17 @@ void iMouse(int button, int state, int mousex, int mousey)
 {
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
     {
+<<<<<<< HEAD
         cout<<mousex<<" "<<mousey<<endl;
         if (ishomepageactive == true)
         {
             if (703<=mousex && mousex<=793 && 426<=mousey && mousey<=457)
+=======
+        if (ishomepageactive == true)
+        {
+            if (mousex >= (screenwidth / 2 - 250) && mousex <= (screenwidth / 2 - 250) + 250 &&
+                mousey >= (screenheight - 300) && mousey <= (screenheight - 300) + 70)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
             {
                 ishomepageactive = false;
                 isgamerunning = true;
@@ -753,17 +795,32 @@ void iMouse(int button, int state, int mousex, int mousey)
                 spawnnewenemies();
                 managemusicplayback();
             }
+<<<<<<< HEAD
             else if (620<=mousex && mousex<=880 && 355<=mousey && mousey<=388)
+=======
+            else if (mousex >= (screenwidth / 2 - 250) && mousex <= (screenwidth / 2 - 250) + 250 &&
+                     mousey >= (screenheight - 370) && mousey <= (screenheight - 370) + 70)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
             {
                 ishomepageactive = false;
                 isinstructionpageactive = true;
             }
+<<<<<<< HEAD
             else if (683<=mousex && mousex<=831 && 287<=mousey && mousey<=315)
+=======
+            else if (mousex >= (screenwidth / 2 - 250) && mousex <= (screenwidth / 2 - 250) + 250 &&
+                     mousey >= (screenheight - 440) && mousey <= (screenheight - 440) + 70)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
             {
                 ishomepageactive = false;
                 iscreditpageactive = true;
             }
+<<<<<<< HEAD
             else if (714<=mousex && mousex<=790 && 215<=mousey && mousey<=248)
+=======
+            else if (mousex >= (screenwidth / 2 - 250) && mousex <= (screenwidth / 2 - 250) + 250 &&
+                     mousey >= (screenheight - 510) && mousey <= (screenheight - 510) + 70)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
             {
                 exit(0);
             }
@@ -785,7 +842,11 @@ void iMouseWheel(int direction, int mousex, int mousey)
 {
 }
 
+<<<<<<< HEAD
 void iKeyboard(unsigned char key, int state)
+=======
+void iKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
     if (key == 'p' || key == 'P')
     {
@@ -831,7 +892,11 @@ void iKeyboard(unsigned char key, int state)
     }
 }
 
+<<<<<<< HEAD
 void iSpecialKeyboard(unsigned char key, int state)
+=======
+void iSpecialKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
     if (isgamerunning && !isgameover && !isgamepaused) {
         if (key == GLUT_KEY_RIGHT && playerx <= (screenwidth / 2) - 100) // Changed boundary
@@ -894,8 +959,13 @@ int main(int argc, char *argv[])
     // when to call rungamelogicanddisplay, there's no separate timer needed for rungamelogicanddisplay.
 
     srand(time(0));
+<<<<<<< HEAD
     iInitializeFont();
     // iInitialize(screenwidth, screenheight, "Space Shooter");
     iOpenWindow(screenwidth, screenheight, "Space Shooter");
+=======
+
+    iInitialize(screenwidth, screenheight, "Space Shooter");
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     return 0;
 }

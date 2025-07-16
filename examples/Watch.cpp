@@ -82,14 +82,22 @@ void iMouse(int button, int state, int mx, int my)
     }
 }
 
+<<<<<<< HEAD
 void iKeyboard(unsigned char key, int state)
+=======
+void iKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
     if (key == 'q')
     {
     }
 }
 
+<<<<<<< HEAD
 void iSpecialKeyboard(unsigned char key, int state)
+=======
+void iSpecialKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 
     if (key == GLUT_KEY_END)
@@ -151,6 +159,10 @@ int main(int argc, char *argv[])
     iSetTimer(1000, second);
     iSetTimer(1000, minute);
     iSetTimer(1000, hour);
+<<<<<<< HEAD
     iOpenWindow(1000, 720, "demo");
+=======
+    iInitialize(1000, 720, "demo");
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     return 0;
 }

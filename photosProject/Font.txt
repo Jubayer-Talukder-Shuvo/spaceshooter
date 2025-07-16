@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 DigitalDisco
+=======
+DigitalDisco
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 https://www.dafont.com/digital-disco.font

@@ -1,6 +1,9 @@
 #include "iGraphics.h"
 #include "iSound.h"
+<<<<<<< HEAD
 #include <time.h>
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 Image bg;
 
 Sprite mario1, mario2, rect;
@@ -13,16 +16,25 @@ bool isMirroredX[2] = {false, false};
 
 void loadResources()
 {
+<<<<<<< HEAD
     clock_t start = clock(); // Start timing
 
     iLoadFramesFromSheet(pinkMonsterFrames, "assets/images/sprites/1 Pink_Monster/Pink_Monster_Idle_4.png", 1, 4);
     iInitSprite(&pinkMonster);
+=======
+    iLoadFramesFromSheet(pinkMonsterFrames, "assets/images/sprites/1 Pink_Monster/Pink_Monster_Idle_4.png", 1, 4);
+    iInitSprite(&pinkMonster, -1);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     iChangeSpriteFrames(&pinkMonster, pinkMonsterFrames, 4);
     iSetSpritePosition(&pinkMonster, 300, 250);
     iScaleSprite(&pinkMonster, 3.0);
 
     iLoadFramesFromFolder(golemFrames, "assets/images/sprites/Golem_2/Walking");
+<<<<<<< HEAD
     iInitSprite(&golem);
+=======
+    iInitSprite(&golem, -1);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     iChangeSpriteFrames(&golem, golemFrames, 24);
     iSetSpritePosition(&golem, 300, 200);
     iScaleSprite(&golem, 0.5);
@@ -30,6 +42,7 @@ void loadResources()
     iLoadImage(&bg, "assets/images/background.jpg");
     iResizeImage(&bg, 1800, 1000);
 
+<<<<<<< HEAD
     iLoadImage2(&rectFrame, "assets/images/rect.png", 0xFFFFFF);
     iInitSprite(&rect);
     iChangeSpriteFrames(&rect, &rectFrame, 1);
@@ -40,14 +53,29 @@ void loadResources()
     double elapsed_ms = 1.0 * (end - start) / CLOCKS_PER_SEC;
 
     printf("Resource loading took %.2f seconds\n", elapsed_ms);
+=======
+    iLoadImage(&rectFrame, "assets/images/rect.png"); // Ignore white color for collision detection
+    iInitSprite(&rect, 0xFFFFFF);
+    iChangeSpriteFrames(&rect, &rectFrame, 1);
+    iSetSpritePosition(&rect, -100, -50);
+    iScaleSprite(&rect, 2);
+    // iWrapSprite(&rect, 500);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 void iDraw()
 {
     // place your drawing codes here
+<<<<<<< HEAD
     iClear();
     // iShowSprite(&mario1);
     iShowLoadedImage(0, 0, &bg);
+=======
+
+    // iShowSprite(&mario1);
+    iShowLoadedImage(0, 0, &bg);
+    iWrapImage(&bg, -10);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     iShowSprite(&golem);
     iShowSprite(&pinkMonster);
     // iShowSprite(&mario2);
@@ -60,7 +88,10 @@ void iDraw()
     // {
     //     iText(100, 500, "Collision Detected", GLUT_BITMAP_TIMES_ROMAN_24);
     // }
+<<<<<<< HEAD
     iShowSpeed(10, 10);
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 /*
@@ -105,6 +136,7 @@ void iMouseWheel(int dir, int mx, int my)
     function iKeyboard() is called whenever the user hits a key in keyboard.
     key- holds the ASCII value of the key pressed.
 */
+<<<<<<< HEAD
 void iKeyboard(unsigned char key, int state)
 {
 
@@ -117,6 +149,12 @@ void iKeyboard(unsigned char key, int state)
     default:
         break;
     }
+=======
+void iKeyboard(unsigned char key)
+{
+
+    // place your codes for other keys here
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 /*
@@ -128,7 +166,11 @@ void iKeyboard(unsigned char key, int state)
     GLUT_KEY_LEFT, GLUT_KEY_UP, GLUT_KEY_RIGHT, GLUT_KEY_DOWN, GLUT_KEY_PAGE UP,
     GLUT_KEY_PAGE DOWN, GLUT_KEY_HOME, GLUT_KEY_END, GLUT_KEY_INSERT
 */
+<<<<<<< HEAD
 void iSpecialKeyboard(unsigned char key, int state)
+=======
+void iSpecialKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 
     if (key == GLUT_KEY_END)
@@ -186,7 +228,10 @@ void iAnim()
     // place your codes here
     iAnimateSprite(&golem);
     iAnimateSprite(&pinkMonster);
+<<<<<<< HEAD
     iWrapImage(&bg, -2, 0);
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     // iUpdateSprite(&mario1);
     // iUpdateSprite(&mario2);
     // iUpdateSprite(&rect);
@@ -195,11 +240,19 @@ void iAnim()
 int main(int argc, char *argv[])
 {
     glutInit(&argc, argv);
+<<<<<<< HEAD
     iInitializeSound();
     iSetTimer(50, iAnim);
     loadResources();
     iPlaySound("assets/sounds/background.wav", true);
     iOpenWindow(1366, 768, "Game Demo", 1);
     printf("Exiting...");
+=======
+    loadResources();
+    iInitializeSound();
+    iPlaySound("assets/sounds/background.wav", true);
+    iSetTimer(50, iAnim);
+    iInitialize(1800, 1000, "Sprite Demo");
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     return 0;
 }

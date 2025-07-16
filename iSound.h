@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /***
  * iSound.h: v0.1.0
  * This file provides a simple sound management system using SDL2 Library.
@@ -11,6 +12,14 @@
  * GitHub: https://github.com/mahirlabibdihan
  * Date: July 5, 2025
  */
+=======
+//
+//  Original Author: Mahir Labib Dihan
+//  last modified: May 19, 2025
+//
+//  Version: 1.0.0
+//
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 
 #include <SDL.h>
 #include <SDL_mixer.h>

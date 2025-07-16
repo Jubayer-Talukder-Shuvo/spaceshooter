@@ -13,7 +13,11 @@ void iDraw()
 
     iClear();
 
+<<<<<<< HEAD
     iSetColor(255, 100, 10);
+=======
+    iSetColor(0, 210, 0);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     iFilledCircle(ball_x, ball_y, ball_radius);
 
     iSetColor(255, 255, 255);
@@ -60,7 +64,11 @@ void iMouse(int button, int state, int mx, int my)
     function iKeyboard() is called whenever the user hits a key in keyboard.
     key- holds the ASCII value of the key pressed.
 */
+<<<<<<< HEAD
 void iKeyboard(unsigned char key, int state)
+=======
+void iKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
     if (key == 'p')
     {
@@ -83,7 +91,11 @@ void iKeyboard(unsigned char key, int state)
     GLUT_KEY_LEFT, GLUT_KEY_UP, GLUT_KEY_RIGHT, GLUT_KEY_DOWN, GLUT_KEY_PAGE UP,
     GLUT_KEY_PAGE DOWN, GLUT_KEY_HOME, GLUT_KEY_END, GLUT_KEY_INSERT
 */
+<<<<<<< HEAD
 void iSpecialKeyboard(unsigned char key, int state)
+=======
+void iSpecialKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 
     if (key == GLUT_KEY_END)
@@ -126,10 +138,19 @@ void randomizeBallPosition()
 int main(int argc, char *argv[])
 {
     glutInit(&argc, argv);
+<<<<<<< HEAD
 
     iSetTimer(20, ballChange);
     // iSetTimer(2000, randomizeBallPosition);
 
     iOpenWindow(400, 400, "Ball Demo");
+=======
+    // place your own initialization codes here.
+    iSetTimer(20, ballChange);
+    // iSetTimer(2000, randomizeBallPosition);
+
+    iInitialize(400, 400, "Shuvo is the king");
+
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
     return 0;
 }

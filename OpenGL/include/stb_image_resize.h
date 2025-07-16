@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* stb_image_resize - v0.96 - public domain image resizing
+=======
+/* stb_image_resize - v0.90 - public domain image resizing
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
    by Jorge L Rodriguez (@VinoBS) - 2014
    http://github.com/nothings/stb
 
@@ -107,8 +111,13 @@
          industry, it is still uncommon in the videogame/real-time world.
 
          If you linearly filter non-premultiplied alpha, strange effects
+<<<<<<< HEAD
          occur. (For example, the 50/50 average of 99% transparent bright green
          and 1% transparent black produces 50% transparent dark green when
+=======
+         occur. (For example, the average of 1% opaque bright green
+         and 99% opaque black produces 50% transparent dark green when
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
          non-premultiplied, whereas premultiplied it produces 50%
          transparent near-black. The former introduces green energy
          that doesn't exist in the source image.)
@@ -152,6 +161,7 @@
          (For example, graphics hardware does not apply sRGB conversion
          to the alpha channel.)
 
+<<<<<<< HEAD
    CONTRIBUTORS
       Jorge L Rodriguez: Implementation
       Sean Barrett: API design, optimizations
@@ -169,6 +179,18 @@
 
    LICENSE
      See end of file for license information.
+=======
+   ADDITIONAL CONTRIBUTORS
+      Sean Barrett: API design, optimizations
+
+   REVISIONS
+      0.90 (2014-09-17) first released version
+
+   LICENSE
+      This software is in the public domain. Where that dedication is not
+      recognized, you are granted a perpetual, irrevocable license to copy
+      and modify this file as you see fit.
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 
    TODO
       Don't decode all of the image data when only processing a partial tile
@@ -187,16 +209,24 @@
 typedef unsigned char stbir_uint8;
 typedef unsigned short stbir_uint16;
 typedef unsigned int stbir_uint32;
+<<<<<<< HEAD
 typedef unsigned __int64 stbir_uint64;
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 #else
 #include <stdint.h>
 typedef uint8_t stbir_uint8;
 typedef uint16_t stbir_uint16;
 typedef uint32_t stbir_uint32;
+<<<<<<< HEAD
 typedef uint64_t stbir_uint64;
 #endif
 
 #ifndef STBIRDEF
+=======
+#endif
+
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 #ifdef STB_IMAGE_RESIZE_STATIC
 #define STBIRDEF static
 #else
@@ -206,7 +236,10 @@ typedef uint64_t stbir_uint64;
 #define STBIRDEF extern
 #endif
 #endif
+<<<<<<< HEAD
 #endif
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -250,18 +283,28 @@ STBIRDEF int stbir_resize_float(const float *input_pixels, int input_w, int inpu
 // when doing sRGB operations.
 #define STBIR_FLAG_ALPHA_USES_COLORSPACE (1 << 1)
 
+<<<<<<< HEAD
 #define STBIR_FLAG_ALPHA_OUT_PREMULTIPLIED (1 << 2)
 
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 STBIRDEF int stbir_resize_uint8_srgb(const unsigned char *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
                                      unsigned char *output_pixels, int output_w, int output_h, int output_stride_in_bytes,
                                      int num_channels, int alpha_channel, int flags);
 
 typedef enum
 {
+<<<<<<< HEAD
   STBIR_EDGE_CLAMP = 1,
   STBIR_EDGE_REFLECT = 2,
   STBIR_EDGE_WRAP = 3,
   STBIR_EDGE_ZERO = 4,
+=======
+    STBIR_EDGE_CLAMP = 1,
+    STBIR_EDGE_REFLECT = 2,
+    STBIR_EDGE_WRAP = 3,
+    STBIR_EDGE_ZERO = 4,
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 } stbir_edge;
 
 // This function adds the ability to specify how requests to sample off the edge of the image are handled.
@@ -287,20 +330,36 @@ STBIRDEF int stbir_resize_uint8_srgb_edgemode(const unsigned char *input_pixels,
 
 typedef enum
 {
+<<<<<<< HEAD
   STBIR_FILTER_DEFAULT = 0,      // use same filter type that easy-to-use API chooses
   STBIR_FILTER_BOX = 1,          // A trapezoid w/1-pixel wide ramps, same result as box for integer scale ratios
   STBIR_FILTER_TRIANGLE = 2,     // On upsampling, produces same results as bilinear texture filtering
   STBIR_FILTER_CUBICBSPLINE = 3, // The cubic b-spline (aka Mitchell-Netrevalli with B=1,C=0), gaussian-esque
   STBIR_FILTER_CATMULLROM = 4,   // An interpolating cubic spline
   STBIR_FILTER_MITCHELL = 5,     // Mitchell-Netrevalli filter with B=1/3, C=1/3
+=======
+    STBIR_FILTER_DEFAULT = 0,      // use same filter type that easy-to-use API chooses
+    STBIR_FILTER_BOX = 1,          // A trapezoid w/1-pixel wide ramps, same result as box for integer scale ratios
+    STBIR_FILTER_TRIANGLE = 2,     // On upsampling, produces same results as bilinear texture filtering
+    STBIR_FILTER_CUBICBSPLINE = 3, // The cubic b-spline (aka Mitchell-Netrevalli with B=1,C=0), gaussian-esque
+    STBIR_FILTER_CATMULLROM = 4,   // An interpolating cubic spline
+    STBIR_FILTER_MITCHELL = 5,     // Mitchell-Netrevalli filter with B=1/3, C=1/3
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 } stbir_filter;
 
 typedef enum
 {
+<<<<<<< HEAD
   STBIR_COLORSPACE_LINEAR,
   STBIR_COLORSPACE_SRGB,
 
   STBIR_MAX_COLORSPACES,
+=======
+    STBIR_COLORSPACE_LINEAR,
+    STBIR_COLORSPACE_SRGB,
+
+    STBIR_MAX_COLORSPACES,
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 } stbir_colorspace;
 
 // The following functions are all identical except for the type of the image data
@@ -338,12 +397,21 @@ STBIRDEF int stbir_resize_float_generic(const float *input_pixels, int input_w, 
 
 typedef enum
 {
+<<<<<<< HEAD
   STBIR_TYPE_UINT8,
   STBIR_TYPE_UINT16,
   STBIR_TYPE_FLOAT,
   STBIR_TYPE_UINT32,
 
   STBIR_MAX_TYPES
+=======
+    STBIR_TYPE_UINT8,
+    STBIR_TYPE_UINT16,
+    STBIR_TYPE_UINT32,
+    STBIR_TYPE_FLOAT,
+
+    STBIR_MAX_TYPES
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 } stbir_datatype;
 
 STBIRDEF int stbir_resize(const void *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -386,6 +454,18 @@ STBIRDEF int stbir_resize_region(const void *input_pixels, int input_w, int inpu
 #define STBIR_ASSERT(x) assert(x)
 #endif
 
+<<<<<<< HEAD
+=======
+#ifdef STBIR_DEBUG
+#define STBIR__DEBUG_ASSERT STBIR_ASSERT
+#else
+#define STBIR__DEBUG_ASSERT
+#endif
+
+// If you hit this it means I haven't done it yet.
+#define STBIR__UNIMPLEMENTED(x) STBIR_ASSERT(!(x))
+
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 // For memset
 #include <string.h>
 
@@ -393,9 +473,14 @@ STBIRDEF int stbir_resize_region(const void *input_pixels, int input_w, int inpu
 
 #ifndef STBIR_MALLOC
 #include <stdlib.h>
+<<<<<<< HEAD
 // use comma operator to evaluate c, to avoid "unused parameter" warnings
 #define STBIR_MALLOC(size, c) ((void)(c), malloc(size))
 #define STBIR_FREE(ptr, c) ((void)(c), free(ptr))
+=======
+#define STBIR_MALLOC(size, c) malloc(size)
+#define STBIR_FREE(ptr, c) free(ptr)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 #endif
 
 #ifndef _MSC_VER
@@ -408,6 +493,7 @@ STBIRDEF int stbir_resize_region(const void *input_pixels, int input_w, int inpu
 #define stbir__inline __forceinline
 #endif
 
+<<<<<<< HEAD
 #ifdef STBIR_PROFILE
 
 union
@@ -490,6 +576,8 @@ static stbir__inline stbir_uint64 STBIR_PROFILE_FUNC()
 
 #endif
 
+=======
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 // should produce compiler error if size is wrong
 typedef unsigned char stbir__validate_uint32[sizeof(stbir_uint32) == 4 ? 1 : -1];
 
@@ -551,20 +639,31 @@ typedef float(stbir__support_fn)(float scale);
 
 typedef struct
 {
+<<<<<<< HEAD
   stbir__kernel_fn *kernel;
   stbir__support_fn *support;
+=======
+    stbir__kernel_fn *kernel;
+    stbir__support_fn *support;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 } stbir__filter_info;
 
 // When upsampling, the contributors are which source pixels contribute.
 // When downsampling, the contributors are which destination pixels are contributed to.
 typedef struct
 {
+<<<<<<< HEAD
   int n0; // First contributing pixel
   int n1; // Last contributing pixel
+=======
+    int n0; // First contributing pixel
+    int n1; // Last contributing pixel
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 } stbir__contributors;
 
 typedef struct
 {
+<<<<<<< HEAD
   const void *input_data;
   int input_w;
   int input_h;
@@ -639,10 +738,87 @@ static const double stbir__max_uint32_as_float = 4294967295.0;
 static stbir__inline int stbir__min(int a, int b)
 {
   return a < b ? a : b;
+=======
+    const void *input_data;
+    int input_w;
+    int input_h;
+    int input_stride_bytes;
+
+    void *output_data;
+    int output_w;
+    int output_h;
+    int output_stride_bytes;
+
+    float s0, t0, s1, t1;
+
+    float horizontal_shift; // Units: output pixels
+    float vertical_shift;   // Units: output pixels
+    float horizontal_scale;
+    float vertical_scale;
+
+    int channels;
+    int alpha_channel;
+    stbir_uint32 flags;
+    stbir_datatype type;
+    stbir_filter horizontal_filter;
+    stbir_filter vertical_filter;
+    stbir_edge edge_horizontal;
+    stbir_edge edge_vertical;
+    stbir_colorspace colorspace;
+
+    stbir__contributors *horizontal_contributors;
+    float *horizontal_coefficients;
+
+    stbir__contributors *vertical_contributors;
+    float *vertical_coefficients;
+
+    int decode_buffer_pixels;
+    float *decode_buffer;
+
+    float *horizontal_buffer;
+
+    // cache these because ceil/floor are inexplicably showing up in profile
+    int horizontal_coefficient_width;
+    int vertical_coefficient_width;
+    int horizontal_filter_pixel_width;
+    int vertical_filter_pixel_width;
+    int horizontal_filter_pixel_margin;
+    int vertical_filter_pixel_margin;
+    int horizontal_num_contributors;
+    int vertical_num_contributors;
+
+    int ring_buffer_length_bytes; // The length of an individual entry in the ring buffer. The total number of ring buffers is stbir__get_filter_pixel_width(filter)
+    int ring_buffer_first_scanline;
+    int ring_buffer_last_scanline;
+    int ring_buffer_begin_index;
+    float *ring_buffer;
+
+    float *encode_buffer; // A temporary buffer to store floats so we don't lose precision while we do multiply-adds.
+
+    int horizontal_contributors_size;
+    int horizontal_coefficients_size;
+    int vertical_contributors_size;
+    int vertical_coefficients_size;
+    int decode_buffer_size;
+    int horizontal_buffer_size;
+    int ring_buffer_size;
+    int encode_buffer_size;
+} stbir__info;
+
+static stbir__inline int stbir__min(int a, int b)
+{
+    return a < b ? a : b;
+}
+
+static stbir__inline int stbir__max(int a, int b)
+{
+    return a > b ? a : b;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static stbir__inline float stbir__saturate(float x)
 {
+<<<<<<< HEAD
   if (x < 0)
     return 0;
 
@@ -650,11 +826,21 @@ static stbir__inline float stbir__saturate(float x)
     return 1;
 
   return x;
+=======
+    if (x < 0)
+        return 0;
+
+    if (x > 1)
+        return 1;
+
+    return x;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 #ifdef STBIR_SATURATE_INT
 static stbir__inline stbir_uint8 stbir__saturate8(int x)
 {
+<<<<<<< HEAD
   if ((unsigned int)x <= 255)
     return (stbir_uint8)x;
 
@@ -662,10 +848,20 @@ static stbir__inline stbir_uint8 stbir__saturate8(int x)
     return 0;
 
   return 255;
+=======
+    if ((unsigned int)x <= 255)
+        return x;
+
+    if (x < 0)
+        return 0;
+
+    return 255;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static stbir__inline stbir_uint16 stbir__saturate16(int x)
 {
+<<<<<<< HEAD
   if ((unsigned int)x <= 65535)
     return (stbir_uint16)x;
 
@@ -673,6 +869,15 @@ static stbir__inline stbir_uint16 stbir__saturate16(int x)
     return 0;
 
   return 65535;
+=======
+    if ((unsigned int)x <= 65535)
+        return x;
+
+    if (x < 0)
+        return 0;
+
+    return 65535;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 #endif
 
@@ -704,18 +909,32 @@ static float stbir__srgb_uchar_to_linear_float[256] = {
 
 static float stbir__srgb_to_linear(float f)
 {
+<<<<<<< HEAD
   if (f <= 0.04045f)
     return f / 12.92f;
   else
     return (float)pow((f + 0.055f) / 1.055f, 2.4f);
+=======
+    if (f <= 0.04045f)
+        return f / 12.92f;
+    else
+        return (float)pow((f + 0.055f) / 1.055f, 2.4f);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__linear_to_srgb(float f)
 {
+<<<<<<< HEAD
   if (f <= 0.0031308f)
     return f * 12.92f;
   else
     return 1.055f * (float)pow(f, 1 / 2.4f) - 0.055f;
+=======
+    if (f <= 0.0031308f)
+        return f * 12.92f;
+    else
+        return 1.055f * (float)pow(f, 1 / 2.4f) - 0.055f;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 #ifndef STBIR_NON_IEEE_FLOAT
@@ -723,8 +942,13 @@ static float stbir__linear_to_srgb(float f)
 
 typedef union
 {
+<<<<<<< HEAD
   stbir_uint32 u;
   float f;
+=======
+    stbir_uint32 u;
+    float f;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 } stbir__FP32;
 
 static const stbir_uint32 fp32_to_srgb8_tab4[104] = {
@@ -836,6 +1060,7 @@ static const stbir_uint32 fp32_to_srgb8_tab4[104] = {
 
 static stbir_uint8 stbir__linear_to_srgb_uchar(float in)
 {
+<<<<<<< HEAD
   static const stbir__FP32 almostone = {0x3f7fffff}; // 1-eps
   static const stbir__FP32 minval = {(127 - 13) << 23};
   stbir_uint32 tab, bias, scale, t;
@@ -858,6 +1083,30 @@ static stbir_uint8 stbir__linear_to_srgb_uchar(float in)
   // Grab next-highest mantissa bits and perform linear interpolation
   t = (f.u >> 12) & 0xff;
   return (unsigned char)((bias + scale * t) >> 16);
+=======
+    static const stbir__FP32 almostone = {0x3f7fffff}; // 1-eps
+    static const stbir__FP32 minval = {(127 - 13) << 23};
+    stbir_uint32 tab, bias, scale, t;
+    stbir__FP32 f;
+
+    // Clamp to [2^(-13), 1-eps]; these two values map to 0 and 1, respectively.
+    // The tests are carefully written so that NaNs map to 0, same as in the reference
+    // implementation.
+    if (!(in > minval.f)) // written this way to catch NaNs
+        in = minval.f;
+    if (in > almostone.f)
+        in = almostone.f;
+
+    // Do the table lookup and unpack bias, scale
+    f.f = in;
+    tab = fp32_to_srgb8_tab4[(f.u - minval.u) >> 20];
+    bias = (tab >> 16) << 9;
+    scale = tab & 0xffff;
+
+    // Grab next-highest mantissa bits and perform linear interpolation
+    t = (f.u >> 12) & 0xff;
+    return (unsigned char)((bias + scale * t) >> 16);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 #else
@@ -1124,6 +1373,7 @@ static int stbir__srgb_offset_to_linear_scaled[256] =
 
 static stbir_uint8 stbir__linear_to_srgb_uchar(float f)
 {
+<<<<<<< HEAD
   int x = (int)(f * (1 << 28)); // has headroom so you don't need to clamp
   int v = 0;
   int i;
@@ -1155,11 +1405,45 @@ static stbir_uint8 stbir__linear_to_srgb_uchar(float f)
     v = i;
 
   return (stbir_uint8)v;
+=======
+    int x = (int)(f * (1 << 28)); // has headroom so you don't need to clamp
+    int v = 0;
+    int i;
+
+    // Refine the guess with a short binary search.
+    i = v + 128;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+    i = v + 64;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+    i = v + 32;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+    i = v + 16;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+    i = v + 8;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+    i = v + 4;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+    i = v + 2;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+    i = v + 1;
+    if (x >= stbir__srgb_offset_to_linear_scaled[i])
+        v = i;
+
+    return (stbir_uint8)v;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 #endif
 
 static float stbir__filter_trapezoid(float x, float scale)
 {
+<<<<<<< HEAD
   float halfscale = scale / 2;
   float t = 0.5f + halfscale;
   STBIR_ASSERT(scale <= 1);
@@ -1176,16 +1460,40 @@ static float stbir__filter_trapezoid(float x, float scale)
     else
       return (t - x) / scale;
   }
+=======
+    float halfscale = scale / 2;
+    float t = 0.5f + halfscale;
+    STBIR__DEBUG_ASSERT(scale <= 1);
+
+    x = (float)fabs(x);
+
+    if (x >= t)
+        return 0;
+    else
+    {
+        float r = 0.5f - halfscale;
+        if (x <= r)
+            return 1;
+        else
+            return (t - x) / scale;
+    }
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__support_trapezoid(float scale)
 {
+<<<<<<< HEAD
   STBIR_ASSERT(scale <= 1);
   return 0.5f + scale / 2;
+=======
+    STBIR__DEBUG_ASSERT(scale <= 1);
+    return 0.5f + scale / 2;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__filter_triangle(float x, float s)
 {
+<<<<<<< HEAD
   STBIR__UNUSED_PARAM(s);
 
   x = (float)fabs(x);
@@ -1194,10 +1502,21 @@ static float stbir__filter_triangle(float x, float s)
     return 1 - x;
   else
     return 0;
+=======
+    STBIR__UNUSED_PARAM(s);
+
+    x = (float)fabs(x);
+
+    if (x <= 1.0f)
+        return 1 - x;
+    else
+        return 0;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__filter_cubic(float x, float s)
 {
+<<<<<<< HEAD
   STBIR__UNUSED_PARAM(s);
 
   x = (float)fabs(x);
@@ -1208,10 +1527,23 @@ static float stbir__filter_cubic(float x, float s)
     return (8 + x * (-12 + x * (6 - x))) / 6;
 
   return (0.0f);
+=======
+    STBIR__UNUSED_PARAM(s);
+
+    x = (float)fabs(x);
+
+    if (x < 1.0f)
+        return (4 + x * x * (3 * x - 6)) / 6;
+    else if (x < 2.0f)
+        return (8 + x * (-12 + x * (6 - x))) / 6;
+
+    return (0.0f);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__filter_catmullrom(float x, float s)
 {
+<<<<<<< HEAD
   STBIR__UNUSED_PARAM(s);
 
   x = (float)fabs(x);
@@ -1222,10 +1554,23 @@ static float stbir__filter_catmullrom(float x, float s)
     return 2 - x * (4 + x * (0.5f * x - 2.5f));
 
   return (0.0f);
+=======
+    STBIR__UNUSED_PARAM(s);
+
+    x = (float)fabs(x);
+
+    if (x < 1.0f)
+        return 1 - x * x * (2.5f - 1.5f * x);
+    else if (x < 2.0f)
+        return 2 - x * (4 + x * (0.5f * x - 2.5f));
+
+    return (0.0f);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__filter_mitchell(float x, float s)
 {
+<<<<<<< HEAD
   STBIR__UNUSED_PARAM(s);
 
   x = (float)fabs(x);
@@ -1236,24 +1581,51 @@ static float stbir__filter_mitchell(float x, float s)
     return (32 + x * (-60 + x * (36 - 7 * x))) / 18;
 
   return (0.0f);
+=======
+    STBIR__UNUSED_PARAM(s);
+
+    x = (float)fabs(x);
+
+    if (x < 1.0f)
+        return (16 + x * x * (21 * x - 36)) / 18;
+    else if (x < 2.0f)
+        return (32 + x * (-60 + x * (36 - 7 * x))) / 18;
+
+    return (0.0f);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__support_zero(float s)
 {
+<<<<<<< HEAD
   STBIR__UNUSED_PARAM(s);
   return 0;
+=======
+    STBIR__UNUSED_PARAM(s);
+    return 0;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__support_one(float s)
 {
+<<<<<<< HEAD
   STBIR__UNUSED_PARAM(s);
   return 1;
+=======
+    STBIR__UNUSED_PARAM(s);
+    return 1;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float stbir__support_two(float s)
 {
+<<<<<<< HEAD
   STBIR__UNUSED_PARAM(s);
   return 2;
+=======
+    STBIR__UNUSED_PARAM(s);
+    return 2;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static stbir__filter_info stbir__filter_info_table[] = {
@@ -1267,6 +1639,7 @@ static stbir__filter_info stbir__filter_info_table[] = {
 
 stbir__inline static int stbir__use_upsampling(float ratio)
 {
+<<<<<<< HEAD
   return ratio > 1;
 }
 
@@ -1278,12 +1651,26 @@ stbir__inline static int stbir__use_width_upsampling(ostbir__info *stbir_info)
 stbir__inline static int stbir__use_height_upsampling(ostbir__info *stbir_info)
 {
   return stbir__use_upsampling(stbir_info->vertical_scale);
+=======
+    return ratio > 1;
+}
+
+stbir__inline static int stbir__use_width_upsampling(stbir__info *stbir_info)
+{
+    return stbir__use_upsampling(stbir_info->horizontal_scale);
+}
+
+stbir__inline static int stbir__use_height_upsampling(stbir__info *stbir_info)
+{
+    return stbir__use_upsampling(stbir_info->vertical_scale);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 // This is the maximum number of input samples that can affect an output sample
 // with the given filter
 static int stbir__get_filter_pixel_width(stbir_filter filter, float scale)
 {
+<<<<<<< HEAD
   STBIR_ASSERT(filter != 0);
   STBIR_ASSERT(filter < STBIR__ARRAY_SIZE(stbir__filter_info_table));
 
@@ -1291,25 +1678,46 @@ static int stbir__get_filter_pixel_width(stbir_filter filter, float scale)
     return (int)ceil(stbir__filter_info_table[filter].support(1 / scale) * 2);
   else
     return (int)ceil(stbir__filter_info_table[filter].support(scale) * 2 / scale);
+=======
+    STBIR_ASSERT(filter != 0);
+    STBIR_ASSERT(filter < STBIR__ARRAY_SIZE(stbir__filter_info_table));
+
+    if (stbir__use_upsampling(scale))
+        return (int)ceil(stbir__filter_info_table[filter].support(1 / scale) * 2);
+    else
+        return (int)ceil(stbir__filter_info_table[filter].support(scale) * 2 / scale);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 // This is how much to expand buffers to account for filters seeking outside
 // the image boundaries.
 static int stbir__get_filter_pixel_margin(stbir_filter filter, float scale)
 {
+<<<<<<< HEAD
   return stbir__get_filter_pixel_width(filter, scale) / 2;
+=======
+    return stbir__get_filter_pixel_width(filter, scale) / 2;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static int stbir__get_coefficient_width(stbir_filter filter, float scale)
 {
+<<<<<<< HEAD
   if (stbir__use_upsampling(scale))
     return (int)ceil(stbir__filter_info_table[filter].support(1 / scale) * 2);
   else
     return (int)ceil(stbir__filter_info_table[filter].support(scale) * 2);
+=======
+    if (stbir__use_upsampling(scale))
+        return (int)ceil(stbir__filter_info_table[filter].support(1 / scale) * 2);
+    else
+        return (int)ceil(stbir__filter_info_table[filter].support(scale) * 2);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static int stbir__get_contributors(float scale, stbir_filter filter, int input_size, int output_size)
 {
+<<<<<<< HEAD
   if (stbir__use_upsampling(scale))
     return output_size;
   else
@@ -1324,23 +1732,49 @@ static int stbir__get_total_horizontal_coefficients(ostbir__info *info)
 static int stbir__get_total_vertical_coefficients(ostbir__info *info)
 {
   return info->vertical_num_contributors * stbir__get_coefficient_width(info->vertical_filter, info->vertical_scale);
+=======
+    if (stbir__use_upsampling(scale))
+        return output_size;
+    else
+        return (input_size + stbir__get_filter_pixel_margin(filter, scale) * 2);
+}
+
+static int stbir__get_total_horizontal_coefficients(stbir__info *info)
+{
+    return info->horizontal_num_contributors * stbir__get_coefficient_width(info->horizontal_filter, info->horizontal_scale);
+}
+
+static int stbir__get_total_vertical_coefficients(stbir__info *info)
+{
+    return info->vertical_num_contributors * stbir__get_coefficient_width(info->vertical_filter, info->vertical_scale);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static stbir__contributors *stbir__get_contributor(stbir__contributors *contributors, int n)
 {
+<<<<<<< HEAD
   return &contributors[n];
+=======
+    return &contributors[n];
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 // For perf reasons this code is duplicated in stbir__resample_horizontal_upsample/downsample,
 // if you change it here change it there too.
 static float *stbir__get_coefficient(float *coefficients, stbir_filter filter, float scale, int n, int c)
 {
+<<<<<<< HEAD
   int width = stbir__get_coefficient_width(filter, scale);
   return &coefficients[width * n + c];
+=======
+    int width = stbir__get_coefficient_width(filter, scale);
+    return &coefficients[width * n + c];
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static int stbir__edge_wrap_slow(stbir_edge edge, int n, int max)
 {
+<<<<<<< HEAD
   switch (edge)
   {
   case STBIR_EDGE_ZERO:
@@ -1395,19 +1829,83 @@ static int stbir__edge_wrap_slow(stbir_edge edge, int n, int max)
     STBIR_ASSERT(!"Unimplemented edge type");
     return 0;
   }
+=======
+    switch (edge)
+    {
+    case STBIR_EDGE_ZERO:
+        return 0; // we'll decode the wrong pixel here, and then overwrite with 0s later
+
+    case STBIR_EDGE_CLAMP:
+        if (n < 0)
+            return 0;
+
+        if (n >= max)
+            return max - 1;
+
+        return n; // NOTREACHED
+
+    case STBIR_EDGE_REFLECT:
+    {
+        if (n < 0)
+        {
+            if (n < max)
+                return -n;
+            else
+                return max - 1;
+        }
+
+        if (n >= max)
+        {
+            int max2 = max * 2;
+            if (n >= max2)
+                return 0;
+            else
+                return max2 - n - 1;
+        }
+
+        return n; // NOTREACHED
+    }
+
+    case STBIR_EDGE_WRAP:
+        if (n >= 0)
+            return (n % max);
+        else
+        {
+            int m = (-n) % max;
+
+            if (m != 0)
+                m = max - m;
+
+            return (m);
+        }
+        return n; // NOTREACHED
+
+    default:
+        STBIR__UNIMPLEMENTED("Unimplemented edge type");
+        return 0;
+    }
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 stbir__inline static int stbir__edge_wrap(stbir_edge edge, int n, int max)
 {
+<<<<<<< HEAD
   // avoid per-pixel switch
   if (n >= 0 && n < max)
     return n;
   return stbir__edge_wrap_slow(edge, n, max);
+=======
+    // avoid per-pixel switch
+    if (n >= 0 && n < max)
+        return n;
+    return stbir__edge_wrap_slow(edge, n, max);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 // What input pixels contribute to this output pixel?
 static void stbir__calculate_sample_range_upsample(int n, float out_filter_radius, float scale_ratio, float out_shift, int *in_first_pixel, int *in_last_pixel, float *in_center_of_out)
 {
+<<<<<<< HEAD
   float out_pixel_center = (float)n + 0.5f;
   float out_pixel_influence_lowerbound = out_pixel_center - out_filter_radius;
   float out_pixel_influence_upperbound = out_pixel_center + out_filter_radius;
@@ -1418,11 +1916,24 @@ static void stbir__calculate_sample_range_upsample(int n, float out_filter_radiu
   *in_center_of_out = (out_pixel_center + out_shift) / scale_ratio;
   *in_first_pixel = (int)(floor(in_pixel_influence_lowerbound + 0.5));
   *in_last_pixel = (int)(floor(in_pixel_influence_upperbound - 0.5));
+=======
+    float out_pixel_center = (float)n + 0.5f;
+    float out_pixel_influence_lowerbound = out_pixel_center - out_filter_radius;
+    float out_pixel_influence_upperbound = out_pixel_center + out_filter_radius;
+
+    float in_pixel_influence_lowerbound = (out_pixel_influence_lowerbound + out_shift) / scale_ratio;
+    float in_pixel_influence_upperbound = (out_pixel_influence_upperbound + out_shift) / scale_ratio;
+
+    *in_center_of_out = (out_pixel_center + out_shift) / scale_ratio;
+    *in_first_pixel = (int)(floor(in_pixel_influence_lowerbound + 0.5));
+    *in_last_pixel = (int)(floor(in_pixel_influence_upperbound - 0.5));
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 // What output pixels does this input pixel contribute to?
 static void stbir__calculate_sample_range_downsample(int n, float in_pixels_radius, float scale_ratio, float out_shift, int *out_first_pixel, int *out_last_pixel, float *out_center_of_in)
 {
+<<<<<<< HEAD
   float in_pixel_center = (float)n + 0.5f;
   float in_pixel_influence_lowerbound = in_pixel_center - in_pixels_radius;
   float in_pixel_influence_upperbound = in_pixel_center + in_pixels_radius;
@@ -1588,10 +2099,178 @@ static void stbir__normalize_downsample_coefficients(stbir__contributors *contri
   // Using min to avoid writing into invalid pixels.
   for (i = 0; i < num_contributors; i++)
     contributors[i].n1 = stbir__min(contributors[i].n1, output_size - 1);
+=======
+    float in_pixel_center = (float)n + 0.5f;
+    float in_pixel_influence_lowerbound = in_pixel_center - in_pixels_radius;
+    float in_pixel_influence_upperbound = in_pixel_center + in_pixels_radius;
+
+    float out_pixel_influence_lowerbound = in_pixel_influence_lowerbound * scale_ratio - out_shift;
+    float out_pixel_influence_upperbound = in_pixel_influence_upperbound * scale_ratio - out_shift;
+
+    *out_center_of_in = in_pixel_center * scale_ratio - out_shift;
+    *out_first_pixel = (int)(floor(out_pixel_influence_lowerbound + 0.5));
+    *out_last_pixel = (int)(floor(out_pixel_influence_upperbound - 0.5));
+}
+
+static void stbir__calculate_coefficients_upsample(stbir__info *stbir_info, stbir_filter filter, float scale, int in_first_pixel, int in_last_pixel, float in_center_of_out, stbir__contributors *contributor, float *coefficient_group)
+{
+    int i;
+    float total_filter = 0;
+    float filter_scale;
+
+    STBIR__DEBUG_ASSERT(in_last_pixel - in_first_pixel <= (int)ceil(stbir__filter_info_table[filter].support(1 / scale) * 2)); // Taken directly from stbir__get_coefficient_width() which we can't call because we don't know if we're horizontal or vertical.
+
+    contributor->n0 = in_first_pixel;
+    contributor->n1 = in_last_pixel;
+
+    STBIR__DEBUG_ASSERT(contributor->n1 >= contributor->n0);
+
+    for (i = 0; i <= in_last_pixel - in_first_pixel; i++)
+    {
+        float in_pixel_center = (float)(i + in_first_pixel) + 0.5f;
+        coefficient_group[i] = stbir__filter_info_table[filter].kernel(in_center_of_out - in_pixel_center, 1 / scale);
+
+        // If the coefficient is zero, skip it. (Don't do the <0 check here, we want the influence of those outside pixels.)
+        if (i == 0 && !coefficient_group[i])
+        {
+            contributor->n0 = ++in_first_pixel;
+            i--;
+            continue;
+        }
+
+        total_filter += coefficient_group[i];
+    }
+
+    STBIR__DEBUG_ASSERT(stbir__filter_info_table[filter].kernel((float)(in_last_pixel + 1) + 0.5f - in_center_of_out, 1 / scale) == 0);
+
+    STBIR__DEBUG_ASSERT(total_filter > 0.9);
+    STBIR__DEBUG_ASSERT(total_filter < 1.1f); // Make sure it's not way off.
+
+    // Make sure the sum of all coefficients is 1.
+    filter_scale = 1 / total_filter;
+
+    for (i = 0; i <= in_last_pixel - in_first_pixel; i++)
+        coefficient_group[i] *= filter_scale;
+
+    for (i = in_last_pixel - in_first_pixel; i >= 0; i--)
+    {
+        if (coefficient_group[i])
+            break;
+
+        // This line has no weight. We can skip it.
+        contributor->n1 = contributor->n0 + i - 1;
+    }
+}
+
+static void stbir__calculate_coefficients_downsample(stbir__info *stbir_info, stbir_filter filter, float scale_ratio, int out_first_pixel, int out_last_pixel, float out_center_of_in, stbir__contributors *contributor, float *coefficient_group)
+{
+    int i;
+
+    STBIR__DEBUG_ASSERT(out_last_pixel - out_first_pixel <= (int)ceil(stbir__filter_info_table[filter].support(scale_ratio) * 2)); // Taken directly from stbir__get_coefficient_width() which we can't call because we don't know if we're horizontal or vertical.
+
+    contributor->n0 = out_first_pixel;
+    contributor->n1 = out_last_pixel;
+
+    STBIR__DEBUG_ASSERT(contributor->n1 >= contributor->n0);
+
+    for (i = 0; i <= out_last_pixel - out_first_pixel; i++)
+    {
+        float out_pixel_center = (float)(i + out_first_pixel) + 0.5f;
+        float x = out_pixel_center - out_center_of_in;
+        coefficient_group[i] = stbir__filter_info_table[filter].kernel(x, scale_ratio) * scale_ratio;
+    }
+
+    STBIR__DEBUG_ASSERT(stbir__filter_info_table[filter].kernel((float)(out_last_pixel + 1) + 0.5f - out_center_of_in, scale_ratio) == 0);
+
+    for (i = out_last_pixel - out_first_pixel; i >= 0; i--)
+    {
+        if (coefficient_group[i])
+            break;
+
+        // This line has no weight. We can skip it.
+        contributor->n1 = contributor->n0 + i - 1;
+    }
+}
+
+static void stbir__normalize_downsample_coefficients(stbir__info *stbir_info, stbir__contributors *contributors, float *coefficients, stbir_filter filter, float scale_ratio, float shift, int input_size, int output_size)
+{
+    int num_contributors = stbir__get_contributors(scale_ratio, filter, input_size, output_size);
+    int num_coefficients = stbir__get_coefficient_width(filter, scale_ratio);
+    int i, j;
+    int skip;
+
+    for (i = 0; i < output_size; i++)
+    {
+        float scale;
+        float total = 0;
+
+        for (j = 0; j < num_contributors; j++)
+        {
+            if (i >= contributors[j].n0 && i <= contributors[j].n1)
+            {
+                float coefficient = *stbir__get_coefficient(coefficients, filter, scale_ratio, j, i - contributors[j].n0);
+                total += coefficient;
+            }
+            else if (i < contributors[j].n0)
+                break;
+        }
+
+        STBIR__DEBUG_ASSERT(total > 0.9f);
+        STBIR__DEBUG_ASSERT(total < 1.1f);
+
+        scale = 1 / total;
+
+        for (j = 0; j < num_contributors; j++)
+        {
+            if (i >= contributors[j].n0 && i <= contributors[j].n1)
+                *stbir__get_coefficient(coefficients, filter, scale_ratio, j, i - contributors[j].n0) *= scale;
+            else if (i < contributors[j].n0)
+                break;
+        }
+    }
+
+    // Optimize: Skip zero coefficients and contributions outside of image bounds.
+    // Do this after normalizing because normalization depends on the n0/n1 values.
+    for (j = 0; j < num_contributors; j++)
+    {
+        int range, max, width;
+
+        skip = 0;
+        while (*stbir__get_coefficient(coefficients, filter, scale_ratio, j, skip) == 0)
+            skip++;
+
+        contributors[j].n0 += skip;
+
+        while (contributors[j].n0 < 0)
+        {
+            contributors[j].n0++;
+            skip++;
+        }
+
+        range = contributors[j].n1 - contributors[j].n0 + 1;
+        max = stbir__min(num_coefficients, range);
+
+        width = stbir__get_coefficient_width(filter, scale_ratio);
+        for (i = 0; i < max; i++)
+        {
+            if (i + skip >= width)
+                break;
+
+            *stbir__get_coefficient(coefficients, filter, scale_ratio, j, i) = *stbir__get_coefficient(coefficients, filter, scale_ratio, j, i + skip);
+        }
+
+        continue;
+    }
+
+    // Using min to avoid writing into invalid pixels.
+    for (i = 0; i < num_contributors; i++)
+        contributors[i].n1 = stbir__min(contributors[i].n1, output_size - 1);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 // Each scan line uses the same kernel values so we should calculate the kernel
 // values once and then we can use them for every scan line.
+<<<<<<< HEAD
 static void stbir__calculate_filters(stbir__contributors *contributors, float *coefficients, stbir_filter filter, float scale_ratio, float shift, int input_size, int output_size)
 {
   int n;
@@ -1637,10 +2316,58 @@ static float *stbir__get_decode_buffer(ostbir__info *stbir_info)
   // The 0 index of the decode buffer starts after the margin. This makes
   // it okay to use negative indexes on the decode buffer.
   return &stbir_info->decode_buffer[stbir_info->horizontal_filter_pixel_margin * stbir_info->channels];
+=======
+static void stbir__calculate_filters(stbir__info *stbir_info, stbir__contributors *contributors, float *coefficients, stbir_filter filter, float scale_ratio, float shift, int input_size, int output_size)
+{
+    int n;
+    int total_contributors = stbir__get_contributors(scale_ratio, filter, input_size, output_size);
+
+    if (stbir__use_upsampling(scale_ratio))
+    {
+        float out_pixels_radius = stbir__filter_info_table[filter].support(1 / scale_ratio) * scale_ratio;
+
+        // Looping through out pixels
+        for (n = 0; n < total_contributors; n++)
+        {
+            float in_center_of_out; // Center of the current out pixel in the in pixel space
+            int in_first_pixel, in_last_pixel;
+
+            stbir__calculate_sample_range_upsample(n, out_pixels_radius, scale_ratio, shift, &in_first_pixel, &in_last_pixel, &in_center_of_out);
+
+            stbir__calculate_coefficients_upsample(stbir_info, filter, scale_ratio, in_first_pixel, in_last_pixel, in_center_of_out, stbir__get_contributor(contributors, n), stbir__get_coefficient(coefficients, filter, scale_ratio, n, 0));
+        }
+    }
+    else
+    {
+        float in_pixels_radius = stbir__filter_info_table[filter].support(scale_ratio) / scale_ratio;
+
+        // Looping through in pixels
+        for (n = 0; n < total_contributors; n++)
+        {
+            float out_center_of_in; // Center of the current out pixel in the in pixel space
+            int out_first_pixel, out_last_pixel;
+            int n_adjusted = n - stbir__get_filter_pixel_margin(filter, scale_ratio);
+
+            stbir__calculate_sample_range_downsample(n_adjusted, in_pixels_radius, scale_ratio, shift, &out_first_pixel, &out_last_pixel, &out_center_of_in);
+
+            stbir__calculate_coefficients_downsample(stbir_info, filter, scale_ratio, out_first_pixel, out_last_pixel, out_center_of_in, stbir__get_contributor(contributors, n), stbir__get_coefficient(coefficients, filter, scale_ratio, n, 0));
+        }
+
+        stbir__normalize_downsample_coefficients(stbir_info, contributors, coefficients, filter, scale_ratio, shift, input_size, output_size);
+    }
+}
+
+static float *stbir__get_decode_buffer(stbir__info *stbir_info)
+{
+    // The 0 index of the decode buffer starts after the margin. This makes
+    // it okay to use negative indexes on the decode buffer.
+    return &stbir_info->decode_buffer[stbir_info->horizontal_filter_pixel_margin * stbir_info->channels];
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 #define STBIR__DECODE(type, colorspace) ((type) * (STBIR_MAX_COLORSPACES) + (colorspace))
 
+<<<<<<< HEAD
 static void stbir__decode_scanline(ostbir__info *stbir_info, int n)
 {
   int c;
@@ -1813,10 +2540,180 @@ static void stbir__decode_scanline(ostbir__info *stbir_info, int n)
         decode_buffer[x * channels + c] = 0;
     }
   }
+=======
+static void stbir__decode_scanline(stbir__info *stbir_info, int n)
+{
+    int c;
+    int channels = stbir_info->channels;
+    int alpha_channel = stbir_info->alpha_channel;
+    int type = stbir_info->type;
+    int colorspace = stbir_info->colorspace;
+    int input_w = stbir_info->input_w;
+    int input_stride_bytes = stbir_info->input_stride_bytes;
+    float *decode_buffer = stbir__get_decode_buffer(stbir_info);
+    stbir_edge edge_horizontal = stbir_info->edge_horizontal;
+    stbir_edge edge_vertical = stbir_info->edge_vertical;
+    int in_buffer_row_offset = stbir__edge_wrap(edge_vertical, n, stbir_info->input_h) * input_stride_bytes;
+    const void *input_data = (char *)stbir_info->input_data + in_buffer_row_offset;
+    int max_x = input_w + stbir_info->horizontal_filter_pixel_margin;
+    int decode = STBIR__DECODE(type, colorspace);
+
+    int x = -stbir_info->horizontal_filter_pixel_margin;
+
+    // special handling for STBIR_EDGE_ZERO because it needs to return an item that doesn't appear in the input,
+    // and we want to avoid paying overhead on every pixel if not STBIR_EDGE_ZERO
+    if (edge_vertical == STBIR_EDGE_ZERO && (n < 0 || n >= stbir_info->input_h))
+    {
+        for (; x < max_x; x++)
+            for (c = 0; c < channels; c++)
+                decode_buffer[x * channels + c] = 0;
+        return;
+    }
+
+    switch (decode)
+    {
+    case STBIR__DECODE(STBIR_TYPE_UINT8, STBIR_COLORSPACE_LINEAR):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = ((float)((const unsigned char *)input_data)[input_pixel_index + c]) / 255;
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT8, STBIR_COLORSPACE_SRGB):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = stbir__srgb_uchar_to_linear_float[((const unsigned char *)input_data)[input_pixel_index + c]];
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                decode_buffer[decode_pixel_index + alpha_channel] = ((float)((const unsigned char *)input_data)[input_pixel_index + alpha_channel]) / 255;
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT16, STBIR_COLORSPACE_LINEAR):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = ((float)((const unsigned short *)input_data)[input_pixel_index + c]) / 65535;
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT16, STBIR_COLORSPACE_SRGB):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = stbir__srgb_to_linear(((float)((const unsigned short *)input_data)[input_pixel_index + c]) / 65535);
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                decode_buffer[decode_pixel_index + alpha_channel] = ((float)((const unsigned short *)input_data)[input_pixel_index + alpha_channel]) / 65535;
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT32, STBIR_COLORSPACE_LINEAR):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = (float)(((double)((const unsigned int *)input_data)[input_pixel_index + c]) / 4294967295);
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT32, STBIR_COLORSPACE_SRGB):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = stbir__srgb_to_linear((float)(((double)((const unsigned int *)input_data)[input_pixel_index + c]) / 4294967295));
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                decode_buffer[decode_pixel_index + alpha_channel] = (float)(((double)((const unsigned int *)input_data)[input_pixel_index + alpha_channel]) / 4294967295);
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_FLOAT, STBIR_COLORSPACE_LINEAR):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = ((const float *)input_data)[input_pixel_index + c];
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_FLOAT, STBIR_COLORSPACE_SRGB):
+        for (; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+            int input_pixel_index = stbir__edge_wrap(edge_horizontal, x, input_w) * channels;
+            for (c = 0; c < channels; c++)
+                decode_buffer[decode_pixel_index + c] = stbir__srgb_to_linear(((const float *)input_data)[input_pixel_index + c]);
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                decode_buffer[decode_pixel_index + alpha_channel] = ((const float *)input_data)[input_pixel_index + alpha_channel];
+        }
+
+        break;
+
+    default:
+        STBIR__UNIMPLEMENTED("Unknown type/colorspace/channels combination.");
+        break;
+    }
+
+    if (!(stbir_info->flags & STBIR_FLAG_ALPHA_PREMULTIPLIED))
+    {
+        for (x = -stbir_info->horizontal_filter_pixel_margin; x < max_x; x++)
+        {
+            int decode_pixel_index = x * channels;
+
+            // If the alpha value is 0 it will clobber the color values. Make sure it's not.
+            float alpha = decode_buffer[decode_pixel_index + alpha_channel];
+#ifndef STBIR_NO_ALPHA_EPSILON
+            if (stbir_info->type != STBIR_TYPE_FLOAT)
+            {
+                alpha += STBIR_ALPHA_EPSILON;
+                decode_buffer[decode_pixel_index + alpha_channel] = alpha;
+            }
+#endif
+            for (c = 0; c < channels; c++)
+            {
+                if (c == alpha_channel)
+                    continue;
+
+                decode_buffer[decode_pixel_index + c] *= alpha;
+            }
+        }
+    }
+
+    if (edge_horizontal == STBIR_EDGE_ZERO)
+    {
+        for (x = -stbir_info->horizontal_filter_pixel_margin; x < 0; x++)
+        {
+            for (c = 0; c < channels; c++)
+                decode_buffer[x * channels + c] = 0;
+        }
+        for (x = input_w; x < max_x; x++)
+        {
+            for (c = 0; c < channels; c++)
+                decode_buffer[x * channels + c] = 0;
+        }
+    }
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static float *stbir__get_ring_buffer_entry(float *ring_buffer, int index, int ring_buffer_length)
 {
+<<<<<<< HEAD
   return &ring_buffer[index * ring_buffer_length];
 }
 
@@ -1870,10 +2767,140 @@ static void stbir__resample_horizontal_upsample(ostbir__info *stbir_info, float 
     STBIR_ASSERT(n1 >= -stbir_info->horizontal_filter_pixel_margin);
     STBIR_ASSERT(n0 < stbir_info->input_w + stbir_info->horizontal_filter_pixel_margin);
     STBIR_ASSERT(n1 < stbir_info->input_w + stbir_info->horizontal_filter_pixel_margin);
+=======
+    return &ring_buffer[index * ring_buffer_length];
+}
+
+static float *stbir__add_empty_ring_buffer_entry(stbir__info *stbir_info, int n)
+{
+    int ring_buffer_index;
+    float *ring_buffer;
+
+    if (stbir_info->ring_buffer_begin_index < 0)
+    {
+        ring_buffer_index = stbir_info->ring_buffer_begin_index = 0;
+        stbir_info->ring_buffer_first_scanline = n;
+    }
+    else
+    {
+        ring_buffer_index = (stbir_info->ring_buffer_begin_index + (stbir_info->ring_buffer_last_scanline - stbir_info->ring_buffer_first_scanline) + 1) % stbir_info->vertical_filter_pixel_width;
+        STBIR__DEBUG_ASSERT(ring_buffer_index != stbir_info->ring_buffer_begin_index);
+    }
+
+    ring_buffer = stbir__get_ring_buffer_entry(stbir_info->ring_buffer, ring_buffer_index, stbir_info->ring_buffer_length_bytes / sizeof(float));
+    memset(ring_buffer, 0, stbir_info->ring_buffer_length_bytes);
+
+    stbir_info->ring_buffer_last_scanline = n;
+
+    return ring_buffer;
+}
+
+static void stbir__resample_horizontal_upsample(stbir__info *stbir_info, int n, float *output_buffer)
+{
+    int x, k;
+    int output_w = stbir_info->output_w;
+    // int kernel_pixel_width = stbir_info->horizontal_filter_pixel_width;
+    int channels = stbir_info->channels;
+    float *decode_buffer = stbir__get_decode_buffer(stbir_info);
+    stbir__contributors *horizontal_contributors = stbir_info->horizontal_contributors;
+    float *horizontal_coefficients = stbir_info->horizontal_coefficients;
+    int coefficient_width = stbir_info->horizontal_coefficient_width;
+
+    for (x = 0; x < output_w; x++)
+    {
+        int n0 = horizontal_contributors[x].n0;
+        int n1 = horizontal_contributors[x].n1;
+
+        int out_pixel_index = x * channels;
+        int coefficient_group = coefficient_width * x;
+        int coefficient_counter = 0;
+
+        STBIR__DEBUG_ASSERT(n1 >= n0);
+        STBIR__DEBUG_ASSERT(n0 >= -stbir_info->horizontal_filter_pixel_margin);
+        STBIR__DEBUG_ASSERT(n1 >= -stbir_info->horizontal_filter_pixel_margin);
+        STBIR__DEBUG_ASSERT(n0 < stbir_info->input_w + stbir_info->horizontal_filter_pixel_margin);
+        STBIR__DEBUG_ASSERT(n1 < stbir_info->input_w + stbir_info->horizontal_filter_pixel_margin);
+
+        switch (channels)
+        {
+        case 1:
+            for (k = n0; k <= n1; k++)
+            {
+                int in_pixel_index = k * 1;
+                float coefficient = horizontal_coefficients[coefficient_group + coefficient_counter++];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+            }
+            break;
+        case 2:
+            for (k = n0; k <= n1; k++)
+            {
+                int in_pixel_index = k * 2;
+                float coefficient = horizontal_coefficients[coefficient_group + coefficient_counter++];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+                output_buffer[out_pixel_index + 1] += decode_buffer[in_pixel_index + 1] * coefficient;
+            }
+            break;
+        case 3:
+            for (k = n0; k <= n1; k++)
+            {
+                int in_pixel_index = k * 3;
+                float coefficient = horizontal_coefficients[coefficient_group + coefficient_counter++];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+                output_buffer[out_pixel_index + 1] += decode_buffer[in_pixel_index + 1] * coefficient;
+                output_buffer[out_pixel_index + 2] += decode_buffer[in_pixel_index + 2] * coefficient;
+            }
+            break;
+        case 4:
+            for (k = n0; k <= n1; k++)
+            {
+                int in_pixel_index = k * 4;
+                float coefficient = horizontal_coefficients[coefficient_group + coefficient_counter++];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+                output_buffer[out_pixel_index + 1] += decode_buffer[in_pixel_index + 1] * coefficient;
+                output_buffer[out_pixel_index + 2] += decode_buffer[in_pixel_index + 2] * coefficient;
+                output_buffer[out_pixel_index + 3] += decode_buffer[in_pixel_index + 3] * coefficient;
+            }
+            break;
+        default:
+            for (k = n0; k <= n1; k++)
+            {
+                int in_pixel_index = k * channels;
+                float coefficient = horizontal_coefficients[coefficient_group + coefficient_counter++];
+                int c;
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                for (c = 0; c < channels; c++)
+                    output_buffer[out_pixel_index + c] += decode_buffer[in_pixel_index + c] * coefficient;
+            }
+            break;
+        }
+    }
+}
+
+static void stbir__resample_horizontal_downsample(stbir__info *stbir_info, int n, float *output_buffer)
+{
+    int x, k;
+    int input_w = stbir_info->input_w;
+    // int output_w = stbir_info->output_w;
+    // int kernel_pixel_width = stbir_info->horizontal_filter_pixel_width;
+    int channels = stbir_info->channels;
+    float *decode_buffer = stbir__get_decode_buffer(stbir_info);
+    stbir__contributors *horizontal_contributors = stbir_info->horizontal_contributors;
+    float *horizontal_coefficients = stbir_info->horizontal_coefficients;
+    int coefficient_width = stbir_info->horizontal_coefficient_width;
+    int filter_pixel_margin = stbir_info->horizontal_filter_pixel_margin;
+    int max_x = input_w + filter_pixel_margin * 2;
+
+    STBIR__DEBUG_ASSERT(!stbir__use_width_upsampling(stbir_info));
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 
     switch (channels)
     {
     case 1:
+<<<<<<< HEAD
       for (k = n0; k <= n1; k++)
       {
         int in_pixel_index = k * 1;
@@ -2141,11 +3168,198 @@ static void stbir__encode_scanline(ostbir__info *stbir_info, int num_pixels, voi
       nonalpha[num_nonalpha++] = (stbir_uint16)x;
     }
   }
+=======
+        for (x = 0; x < max_x; x++)
+        {
+            int n0 = horizontal_contributors[x].n0;
+            int n1 = horizontal_contributors[x].n1;
+
+            int in_x = x - filter_pixel_margin;
+            int in_pixel_index = in_x * 1;
+            int max_n = n1;
+            int coefficient_group = coefficient_width * x;
+
+            for (k = n0; k <= max_n; k++)
+            {
+                int out_pixel_index = k * 1;
+                float coefficient = horizontal_coefficients[coefficient_group + k - n0];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+            }
+        }
+        break;
+
+    case 2:
+        for (x = 0; x < max_x; x++)
+        {
+            int n0 = horizontal_contributors[x].n0;
+            int n1 = horizontal_contributors[x].n1;
+
+            int in_x = x - filter_pixel_margin;
+            int in_pixel_index = in_x * 2;
+            int max_n = n1;
+            int coefficient_group = coefficient_width * x;
+
+            for (k = n0; k <= max_n; k++)
+            {
+                int out_pixel_index = k * 2;
+                float coefficient = horizontal_coefficients[coefficient_group + k - n0];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+                output_buffer[out_pixel_index + 1] += decode_buffer[in_pixel_index + 1] * coefficient;
+            }
+        }
+        break;
+
+    case 3:
+        for (x = 0; x < max_x; x++)
+        {
+            int n0 = horizontal_contributors[x].n0;
+            int n1 = horizontal_contributors[x].n1;
+
+            int in_x = x - filter_pixel_margin;
+            int in_pixel_index = in_x * 3;
+            int max_n = n1;
+            int coefficient_group = coefficient_width * x;
+
+            for (k = n0; k <= max_n; k++)
+            {
+                int out_pixel_index = k * 3;
+                float coefficient = horizontal_coefficients[coefficient_group + k - n0];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+                output_buffer[out_pixel_index + 1] += decode_buffer[in_pixel_index + 1] * coefficient;
+                output_buffer[out_pixel_index + 2] += decode_buffer[in_pixel_index + 2] * coefficient;
+            }
+        }
+        break;
+
+    case 4:
+        for (x = 0; x < max_x; x++)
+        {
+            int n0 = horizontal_contributors[x].n0;
+            int n1 = horizontal_contributors[x].n1;
+
+            int in_x = x - filter_pixel_margin;
+            int in_pixel_index = in_x * 4;
+            int max_n = n1;
+            int coefficient_group = coefficient_width * x;
+
+            for (k = n0; k <= max_n; k++)
+            {
+                int out_pixel_index = k * 4;
+                float coefficient = horizontal_coefficients[coefficient_group + k - n0];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                output_buffer[out_pixel_index + 0] += decode_buffer[in_pixel_index + 0] * coefficient;
+                output_buffer[out_pixel_index + 1] += decode_buffer[in_pixel_index + 1] * coefficient;
+                output_buffer[out_pixel_index + 2] += decode_buffer[in_pixel_index + 2] * coefficient;
+                output_buffer[out_pixel_index + 3] += decode_buffer[in_pixel_index + 3] * coefficient;
+            }
+        }
+        break;
+
+    default:
+        for (x = 0; x < max_x; x++)
+        {
+            int n0 = horizontal_contributors[x].n0;
+            int n1 = horizontal_contributors[x].n1;
+
+            int in_x = x - filter_pixel_margin;
+            int in_pixel_index = in_x * channels;
+            int max_n = n1;
+            int coefficient_group = coefficient_width * x;
+
+            for (k = n0; k <= max_n; k++)
+            {
+                int c;
+                int out_pixel_index = k * channels;
+                float coefficient = horizontal_coefficients[coefficient_group + k - n0];
+                STBIR__DEBUG_ASSERT(coefficient != 0);
+                for (c = 0; c < channels; c++)
+                    output_buffer[out_pixel_index + c] += decode_buffer[in_pixel_index + c] * coefficient;
+            }
+        }
+        break;
+    }
+}
+
+static void stbir__decode_and_resample_upsample(stbir__info *stbir_info, int n)
+{
+    // Decode the nth scanline from the source image into the decode buffer.
+    stbir__decode_scanline(stbir_info, n);
+
+    // Now resample it into the ring buffer.
+    if (stbir__use_width_upsampling(stbir_info))
+        stbir__resample_horizontal_upsample(stbir_info, n, stbir__add_empty_ring_buffer_entry(stbir_info, n));
+    else
+        stbir__resample_horizontal_downsample(stbir_info, n, stbir__add_empty_ring_buffer_entry(stbir_info, n));
+
+    // Now it's sitting in the ring buffer ready to be used as source for the vertical sampling.
+}
+
+static void stbir__decode_and_resample_downsample(stbir__info *stbir_info, int n)
+{
+    // Decode the nth scanline from the source image into the decode buffer.
+    stbir__decode_scanline(stbir_info, n);
+
+    memset(stbir_info->horizontal_buffer, 0, stbir_info->output_w * stbir_info->channels * sizeof(float));
+
+    // Now resample it into the horizontal buffer.
+    if (stbir__use_width_upsampling(stbir_info))
+        stbir__resample_horizontal_upsample(stbir_info, n, stbir_info->horizontal_buffer);
+    else
+        stbir__resample_horizontal_downsample(stbir_info, n, stbir_info->horizontal_buffer);
+
+    // Now it's sitting in the horizontal buffer ready to be distributed into the ring buffers.
+}
+
+// Get the specified scan line from the ring buffer.
+static float *stbir__get_ring_buffer_scanline(int get_scanline, float *ring_buffer, int begin_index, int first_scanline, int ring_buffer_size, int ring_buffer_length)
+{
+    int ring_buffer_index = (begin_index + (get_scanline - first_scanline)) % ring_buffer_size;
+    return stbir__get_ring_buffer_entry(ring_buffer, ring_buffer_index, ring_buffer_length);
+}
+
+static void stbir__encode_scanline(stbir__info *stbir_info, int num_pixels, void *output_buffer, float *encode_buffer, int channels, int alpha_channel, int decode)
+{
+    int x;
+    int n;
+    int num_nonalpha;
+    stbir_uint16 nonalpha[STBIR_MAX_CHANNELS];
+
+    if (!(stbir_info->flags & STBIR_FLAG_ALPHA_PREMULTIPLIED))
+    {
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            float alpha = encode_buffer[pixel_index + alpha_channel];
+            float reciprocal_alpha = alpha ? 1.0f / alpha : 0;
+
+            // unrolling this produced a 1% slowdown upscaling a large RGBA linear-space image on my machine - stb
+            for (n = 0; n < channels; n++)
+                if (n != alpha_channel)
+                    encode_buffer[pixel_index + n] *= reciprocal_alpha;
+
+            // We added in a small epsilon to prevent the color channel from being deleted with zero alpha.
+            // Because we only add it for integer types, it will automatically be discarded on integer
+            // conversion, so we don't need to subtract it back out (which would be problematic for
+            // numeric precision reasons).
+        }
+    }
+
+    // build a table of all channels that need colorspace correction, so
+    // we don't perform colorspace correction on channels that don't need it.
+    for (x = 0, num_nonalpha = 0; x < channels; ++x)
+        if (x != alpha_channel || (stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+            nonalpha[num_nonalpha++] = x;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 
 #define STBIR__ROUND_INT(f) ((int)((f) + 0.5))
 #define STBIR__ROUND_UINT(f) ((stbir_uint32)((f) + 0.5))
 
 #ifdef STBIR__SATURATE_INT
+<<<<<<< HEAD
 #define STBIR__ENCODE_LINEAR8(f) stbir__saturate8(STBIR__ROUND_INT((f) * stbir__max_uint8_as_float))
 #define STBIR__ENCODE_LINEAR16(f) stbir__saturate16(STBIR__ROUND_INT((f) * stbir__max_uint16_as_float))
 #else
@@ -2718,12 +3932,568 @@ static stbir_uint32 stbir__calculate_memory(ostbir__info *info)
 }
 
 static int stbir__resize_allocated(ostbir__info *info,
+=======
+#define STBIR__ENCODE_LINEAR8(f) stbir__saturate8(STBIR__ROUND_INT((f) * 255))
+#define STBIR__ENCODE_LINEAR16(f) stbir__saturate16(STBIR__ROUND_INT((f) * 65535))
+#else
+#define STBIR__ENCODE_LINEAR8(f) (unsigned char)STBIR__ROUND_INT(stbir__saturate(f) * 255)
+#define STBIR__ENCODE_LINEAR16(f) (unsigned short)STBIR__ROUND_INT(stbir__saturate(f) * 65535)
+#endif
+
+    switch (decode)
+    {
+    case STBIR__DECODE(STBIR_TYPE_UINT8, STBIR_COLORSPACE_LINEAR):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < channels; n++)
+            {
+                int index = pixel_index + n;
+                ((unsigned char *)output_buffer)[index] = STBIR__ENCODE_LINEAR8(encode_buffer[index]);
+            }
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT8, STBIR_COLORSPACE_SRGB):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < num_nonalpha; n++)
+            {
+                int index = pixel_index + nonalpha[n];
+                ((unsigned char *)output_buffer)[index] = stbir__linear_to_srgb_uchar(encode_buffer[index]);
+            }
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                ((unsigned char *)output_buffer)[pixel_index + alpha_channel] = STBIR__ENCODE_LINEAR8(encode_buffer[pixel_index + alpha_channel]);
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT16, STBIR_COLORSPACE_LINEAR):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < channels; n++)
+            {
+                int index = pixel_index + n;
+                ((unsigned short *)output_buffer)[index] = STBIR__ENCODE_LINEAR16(encode_buffer[index]);
+            }
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT16, STBIR_COLORSPACE_SRGB):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < num_nonalpha; n++)
+            {
+                int index = pixel_index + nonalpha[n];
+                ((unsigned short *)output_buffer)[index] = (unsigned short)STBIR__ROUND_INT(stbir__linear_to_srgb(stbir__saturate(encode_buffer[index])) * 65535);
+            }
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                ((unsigned short *)output_buffer)[pixel_index + alpha_channel] = STBIR__ENCODE_LINEAR16(encode_buffer[pixel_index + alpha_channel]);
+        }
+
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT32, STBIR_COLORSPACE_LINEAR):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < channels; n++)
+            {
+                int index = pixel_index + n;
+                ((unsigned int *)output_buffer)[index] = (unsigned int)STBIR__ROUND_UINT(((double)stbir__saturate(encode_buffer[index])) * 4294967295);
+            }
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_UINT32, STBIR_COLORSPACE_SRGB):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < num_nonalpha; n++)
+            {
+                int index = pixel_index + nonalpha[n];
+                ((unsigned int *)output_buffer)[index] = (unsigned int)STBIR__ROUND_UINT(((double)stbir__linear_to_srgb(stbir__saturate(encode_buffer[index]))) * 4294967295);
+            }
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                ((unsigned int *)output_buffer)[pixel_index + alpha_channel] = (unsigned int)STBIR__ROUND_INT(((double)stbir__saturate(encode_buffer[pixel_index + alpha_channel])) * 4294967295);
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_FLOAT, STBIR_COLORSPACE_LINEAR):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < channels; n++)
+            {
+                int index = pixel_index + n;
+                ((float *)output_buffer)[index] = encode_buffer[index];
+            }
+        }
+        break;
+
+    case STBIR__DECODE(STBIR_TYPE_FLOAT, STBIR_COLORSPACE_SRGB):
+        for (x = 0; x < num_pixels; ++x)
+        {
+            int pixel_index = x * channels;
+
+            for (n = 0; n < num_nonalpha; n++)
+            {
+                int index = pixel_index + nonalpha[n];
+                ((float *)output_buffer)[index] = stbir__linear_to_srgb(encode_buffer[index]);
+            }
+
+            if (!(stbir_info->flags & STBIR_FLAG_ALPHA_USES_COLORSPACE))
+                ((float *)output_buffer)[pixel_index + alpha_channel] = encode_buffer[pixel_index + alpha_channel];
+        }
+        break;
+
+    default:
+        STBIR__UNIMPLEMENTED("Unknown type/colorspace/channels combination.");
+        break;
+    }
+}
+
+static void stbir__resample_vertical_upsample(stbir__info *stbir_info, int n, int in_first_scanline, int in_last_scanline, float in_center_of_out)
+{
+    int x, k;
+    int output_w = stbir_info->output_w;
+    stbir__contributors *vertical_contributors = stbir_info->vertical_contributors;
+    float *vertical_coefficients = stbir_info->vertical_coefficients;
+    int channels = stbir_info->channels;
+    int alpha_channel = stbir_info->alpha_channel;
+    int type = stbir_info->type;
+    int colorspace = stbir_info->colorspace;
+    int kernel_pixel_width = stbir_info->vertical_filter_pixel_width;
+    void *output_data = stbir_info->output_data;
+    float *encode_buffer = stbir_info->encode_buffer;
+    int decode = STBIR__DECODE(type, colorspace);
+    int coefficient_width = stbir_info->vertical_coefficient_width;
+    int coefficient_counter;
+    int contributor = n;
+
+    float *ring_buffer = stbir_info->ring_buffer;
+    int ring_buffer_begin_index = stbir_info->ring_buffer_begin_index;
+    int ring_buffer_first_scanline = stbir_info->ring_buffer_first_scanline;
+    // int ring_buffer_last_scanline = stbir_info->ring_buffer_last_scanline;
+    int ring_buffer_length = stbir_info->ring_buffer_length_bytes / sizeof(float);
+
+    int n0, n1, output_row_start;
+    int coefficient_group = coefficient_width * contributor;
+
+    n0 = vertical_contributors[contributor].n0;
+    n1 = vertical_contributors[contributor].n1;
+
+    output_row_start = n * stbir_info->output_stride_bytes;
+
+    STBIR__DEBUG_ASSERT(stbir__use_height_upsampling(stbir_info));
+
+    memset(encode_buffer, 0, output_w * sizeof(float) * channels);
+
+    // I tried reblocking this for better cache usage of encode_buffer
+    // (using x_outer, k, x_inner), but it lost speed. -- stb
+
+    coefficient_counter = 0;
+    switch (channels)
+    {
+    case 1:
+        for (k = n0; k <= n1; k++)
+        {
+            int coefficient_index = coefficient_counter++;
+            float *ring_buffer_entry = stbir__get_ring_buffer_scanline(k, ring_buffer, ring_buffer_begin_index, ring_buffer_first_scanline, kernel_pixel_width, ring_buffer_length);
+            float coefficient = vertical_coefficients[coefficient_group + coefficient_index];
+            for (x = 0; x < output_w; ++x)
+            {
+                int in_pixel_index = x * 1;
+                encode_buffer[in_pixel_index + 0] += ring_buffer_entry[in_pixel_index + 0] * coefficient;
+            }
+        }
+        break;
+    case 2:
+        for (k = n0; k <= n1; k++)
+        {
+            int coefficient_index = coefficient_counter++;
+            float *ring_buffer_entry = stbir__get_ring_buffer_scanline(k, ring_buffer, ring_buffer_begin_index, ring_buffer_first_scanline, kernel_pixel_width, ring_buffer_length);
+            float coefficient = vertical_coefficients[coefficient_group + coefficient_index];
+            for (x = 0; x < output_w; ++x)
+            {
+                int in_pixel_index = x * 2;
+                encode_buffer[in_pixel_index + 0] += ring_buffer_entry[in_pixel_index + 0] * coefficient;
+                encode_buffer[in_pixel_index + 1] += ring_buffer_entry[in_pixel_index + 1] * coefficient;
+            }
+        }
+        break;
+    case 3:
+        for (k = n0; k <= n1; k++)
+        {
+            int coefficient_index = coefficient_counter++;
+            float *ring_buffer_entry = stbir__get_ring_buffer_scanline(k, ring_buffer, ring_buffer_begin_index, ring_buffer_first_scanline, kernel_pixel_width, ring_buffer_length);
+            float coefficient = vertical_coefficients[coefficient_group + coefficient_index];
+            for (x = 0; x < output_w; ++x)
+            {
+                int in_pixel_index = x * 3;
+                encode_buffer[in_pixel_index + 0] += ring_buffer_entry[in_pixel_index + 0] * coefficient;
+                encode_buffer[in_pixel_index + 1] += ring_buffer_entry[in_pixel_index + 1] * coefficient;
+                encode_buffer[in_pixel_index + 2] += ring_buffer_entry[in_pixel_index + 2] * coefficient;
+            }
+        }
+        break;
+    case 4:
+        for (k = n0; k <= n1; k++)
+        {
+            int coefficient_index = coefficient_counter++;
+            float *ring_buffer_entry = stbir__get_ring_buffer_scanline(k, ring_buffer, ring_buffer_begin_index, ring_buffer_first_scanline, kernel_pixel_width, ring_buffer_length);
+            float coefficient = vertical_coefficients[coefficient_group + coefficient_index];
+            for (x = 0; x < output_w; ++x)
+            {
+                int in_pixel_index = x * 4;
+                encode_buffer[in_pixel_index + 0] += ring_buffer_entry[in_pixel_index + 0] * coefficient;
+                encode_buffer[in_pixel_index + 1] += ring_buffer_entry[in_pixel_index + 1] * coefficient;
+                encode_buffer[in_pixel_index + 2] += ring_buffer_entry[in_pixel_index + 2] * coefficient;
+                encode_buffer[in_pixel_index + 3] += ring_buffer_entry[in_pixel_index + 3] * coefficient;
+            }
+        }
+        break;
+    default:
+        for (k = n0; k <= n1; k++)
+        {
+            int coefficient_index = coefficient_counter++;
+            float *ring_buffer_entry = stbir__get_ring_buffer_scanline(k, ring_buffer, ring_buffer_begin_index, ring_buffer_first_scanline, kernel_pixel_width, ring_buffer_length);
+            float coefficient = vertical_coefficients[coefficient_group + coefficient_index];
+            for (x = 0; x < output_w; ++x)
+            {
+                int in_pixel_index = x * channels;
+                int c;
+                for (c = 0; c < channels; c++)
+                    encode_buffer[in_pixel_index + c] += ring_buffer_entry[in_pixel_index + c] * coefficient;
+            }
+        }
+        break;
+    }
+    stbir__encode_scanline(stbir_info, output_w, (char *)output_data + output_row_start, encode_buffer, channels, alpha_channel, decode);
+}
+
+static void stbir__resample_vertical_downsample(stbir__info *stbir_info, int n, int in_first_scanline, int in_last_scanline, float in_center_of_out)
+{
+    int x, k;
+    int output_w = stbir_info->output_w;
+    // int output_h = stbir_info->output_h;
+    stbir__contributors *vertical_contributors = stbir_info->vertical_contributors;
+    float *vertical_coefficients = stbir_info->vertical_coefficients;
+    int channels = stbir_info->channels;
+    int kernel_pixel_width = stbir_info->vertical_filter_pixel_width;
+    // void *output_data = stbir_info->output_data;
+    float *horizontal_buffer = stbir_info->horizontal_buffer;
+    int coefficient_width = stbir_info->vertical_coefficient_width;
+    int contributor = n + stbir_info->vertical_filter_pixel_margin;
+
+    float *ring_buffer = stbir_info->ring_buffer;
+    int ring_buffer_begin_index = stbir_info->ring_buffer_begin_index;
+    int ring_buffer_first_scanline = stbir_info->ring_buffer_first_scanline;
+    // int ring_buffer_last_scanline = stbir_info->ring_buffer_last_scanline;
+    int ring_buffer_length = stbir_info->ring_buffer_length_bytes / sizeof(float);
+    int n0, n1;
+
+    n0 = vertical_contributors[contributor].n0;
+    n1 = vertical_contributors[contributor].n1;
+
+    STBIR__DEBUG_ASSERT(!stbir__use_height_upsampling(stbir_info));
+
+    for (k = n0; k <= n1; k++)
+    {
+        int coefficient_index = k - n0;
+        int coefficient_group = coefficient_width * contributor;
+        float coefficient = vertical_coefficients[coefficient_group + coefficient_index];
+
+        float *ring_buffer_entry = stbir__get_ring_buffer_scanline(k, ring_buffer, ring_buffer_begin_index, ring_buffer_first_scanline, kernel_pixel_width, ring_buffer_length);
+
+        switch (channels)
+        {
+        case 1:
+            for (x = 0; x < output_w; x++)
+            {
+                int in_pixel_index = x * 1;
+                ring_buffer_entry[in_pixel_index + 0] += horizontal_buffer[in_pixel_index + 0] * coefficient;
+            }
+            break;
+        case 2:
+            for (x = 0; x < output_w; x++)
+            {
+                int in_pixel_index = x * 2;
+                ring_buffer_entry[in_pixel_index + 0] += horizontal_buffer[in_pixel_index + 0] * coefficient;
+                ring_buffer_entry[in_pixel_index + 1] += horizontal_buffer[in_pixel_index + 1] * coefficient;
+            }
+            break;
+        case 3:
+            for (x = 0; x < output_w; x++)
+            {
+                int in_pixel_index = x * 3;
+                ring_buffer_entry[in_pixel_index + 0] += horizontal_buffer[in_pixel_index + 0] * coefficient;
+                ring_buffer_entry[in_pixel_index + 1] += horizontal_buffer[in_pixel_index + 1] * coefficient;
+                ring_buffer_entry[in_pixel_index + 2] += horizontal_buffer[in_pixel_index + 2] * coefficient;
+            }
+            break;
+        case 4:
+            for (x = 0; x < output_w; x++)
+            {
+                int in_pixel_index = x * 4;
+                ring_buffer_entry[in_pixel_index + 0] += horizontal_buffer[in_pixel_index + 0] * coefficient;
+                ring_buffer_entry[in_pixel_index + 1] += horizontal_buffer[in_pixel_index + 1] * coefficient;
+                ring_buffer_entry[in_pixel_index + 2] += horizontal_buffer[in_pixel_index + 2] * coefficient;
+                ring_buffer_entry[in_pixel_index + 3] += horizontal_buffer[in_pixel_index + 3] * coefficient;
+            }
+            break;
+        default:
+            for (x = 0; x < output_w; x++)
+            {
+                int in_pixel_index = x * channels;
+
+                int c;
+                for (c = 0; c < channels; c++)
+                    ring_buffer_entry[in_pixel_index + c] += horizontal_buffer[in_pixel_index + c] * coefficient;
+            }
+            break;
+        }
+    }
+}
+
+static void stbir__buffer_loop_upsample(stbir__info *stbir_info)
+{
+    int y;
+    float scale_ratio = stbir_info->vertical_scale;
+    float out_scanlines_radius = stbir__filter_info_table[stbir_info->vertical_filter].support(1 / scale_ratio) * scale_ratio;
+
+    STBIR__DEBUG_ASSERT(stbir__use_height_upsampling(stbir_info));
+
+    for (y = 0; y < stbir_info->output_h; y++)
+    {
+        float in_center_of_out = 0; // Center of the current out scanline in the in scanline space
+        int in_first_scanline = 0, in_last_scanline = 0;
+
+        stbir__calculate_sample_range_upsample(y, out_scanlines_radius, scale_ratio, stbir_info->vertical_shift, &in_first_scanline, &in_last_scanline, &in_center_of_out);
+
+        STBIR__DEBUG_ASSERT(in_last_scanline - in_first_scanline <= stbir_info->vertical_filter_pixel_width);
+
+        if (stbir_info->ring_buffer_begin_index >= 0)
+        {
+            // Get rid of whatever we don't need anymore.
+            while (in_first_scanline > stbir_info->ring_buffer_first_scanline)
+            {
+                if (stbir_info->ring_buffer_first_scanline == stbir_info->ring_buffer_last_scanline)
+                {
+                    // We just popped the last scanline off the ring buffer.
+                    // Reset it to the empty state.
+                    stbir_info->ring_buffer_begin_index = -1;
+                    stbir_info->ring_buffer_first_scanline = 0;
+                    stbir_info->ring_buffer_last_scanline = 0;
+                    break;
+                }
+                else
+                {
+                    stbir_info->ring_buffer_first_scanline++;
+                    stbir_info->ring_buffer_begin_index = (stbir_info->ring_buffer_begin_index + 1) % stbir_info->vertical_filter_pixel_width;
+                }
+            }
+        }
+
+        // Load in new ones.
+        if (stbir_info->ring_buffer_begin_index < 0)
+            stbir__decode_and_resample_upsample(stbir_info, in_first_scanline);
+
+        while (in_last_scanline > stbir_info->ring_buffer_last_scanline)
+            stbir__decode_and_resample_upsample(stbir_info, stbir_info->ring_buffer_last_scanline + 1);
+
+        // Now all buffers should be ready to write a row of vertical sampling.
+        stbir__resample_vertical_upsample(stbir_info, y, in_first_scanline, in_last_scanline, in_center_of_out);
+
+        STBIR_PROGRESS_REPORT((float)y / stbir_info->output_h);
+    }
+}
+
+static void stbir__empty_ring_buffer(stbir__info *stbir_info, int first_necessary_scanline)
+{
+    int output_stride_bytes = stbir_info->output_stride_bytes;
+    int channels = stbir_info->channels;
+    int alpha_channel = stbir_info->alpha_channel;
+    int type = stbir_info->type;
+    int colorspace = stbir_info->colorspace;
+    int output_w = stbir_info->output_w;
+    void *output_data = stbir_info->output_data;
+    int decode = STBIR__DECODE(type, colorspace);
+
+    float *ring_buffer = stbir_info->ring_buffer;
+    int ring_buffer_length = stbir_info->ring_buffer_length_bytes / sizeof(float);
+
+    if (stbir_info->ring_buffer_begin_index >= 0)
+    {
+        // Get rid of whatever we don't need anymore.
+        while (first_necessary_scanline > stbir_info->ring_buffer_first_scanline)
+        {
+            if (stbir_info->ring_buffer_first_scanline >= 0 && stbir_info->ring_buffer_first_scanline < stbir_info->output_h)
+            {
+                int output_row_start = stbir_info->ring_buffer_first_scanline * output_stride_bytes;
+                float *ring_buffer_entry = stbir__get_ring_buffer_entry(ring_buffer, stbir_info->ring_buffer_begin_index, ring_buffer_length);
+                stbir__encode_scanline(stbir_info, output_w, (char *)output_data + output_row_start, ring_buffer_entry, channels, alpha_channel, decode);
+                STBIR_PROGRESS_REPORT((float)stbir_info->ring_buffer_first_scanline / stbir_info->output_h);
+            }
+
+            if (stbir_info->ring_buffer_first_scanline == stbir_info->ring_buffer_last_scanline)
+            {
+                // We just popped the last scanline off the ring buffer.
+                // Reset it to the empty state.
+                stbir_info->ring_buffer_begin_index = -1;
+                stbir_info->ring_buffer_first_scanline = 0;
+                stbir_info->ring_buffer_last_scanline = 0;
+                break;
+            }
+            else
+            {
+                stbir_info->ring_buffer_first_scanline++;
+                stbir_info->ring_buffer_begin_index = (stbir_info->ring_buffer_begin_index + 1) % stbir_info->vertical_filter_pixel_width;
+            }
+        }
+    }
+}
+
+static void stbir__buffer_loop_downsample(stbir__info *stbir_info)
+{
+    int y;
+    float scale_ratio = stbir_info->vertical_scale;
+    int output_h = stbir_info->output_h;
+    float in_pixels_radius = stbir__filter_info_table[stbir_info->vertical_filter].support(scale_ratio) / scale_ratio;
+    int pixel_margin = stbir_info->vertical_filter_pixel_margin;
+    int max_y = stbir_info->input_h + pixel_margin;
+
+    STBIR__DEBUG_ASSERT(!stbir__use_height_upsampling(stbir_info));
+
+    for (y = -pixel_margin; y < max_y; y++)
+    {
+        float out_center_of_in; // Center of the current out scanline in the in scanline space
+        int out_first_scanline, out_last_scanline;
+
+        stbir__calculate_sample_range_downsample(y, in_pixels_radius, scale_ratio, stbir_info->vertical_shift, &out_first_scanline, &out_last_scanline, &out_center_of_in);
+
+        STBIR__DEBUG_ASSERT(out_last_scanline - out_first_scanline <= stbir_info->vertical_filter_pixel_width);
+
+        if (out_last_scanline < 0 || out_first_scanline >= output_h)
+            continue;
+
+        stbir__empty_ring_buffer(stbir_info, out_first_scanline);
+
+        stbir__decode_and_resample_downsample(stbir_info, y);
+
+        // Load in new ones.
+        if (stbir_info->ring_buffer_begin_index < 0)
+            stbir__add_empty_ring_buffer_entry(stbir_info, out_first_scanline);
+
+        while (out_last_scanline > stbir_info->ring_buffer_last_scanline)
+            stbir__add_empty_ring_buffer_entry(stbir_info, stbir_info->ring_buffer_last_scanline + 1);
+
+        // Now the horizontal buffer is ready to write to all ring buffer rows.
+        stbir__resample_vertical_downsample(stbir_info, y, out_first_scanline, out_last_scanline, out_center_of_in);
+    }
+
+    stbir__empty_ring_buffer(stbir_info, stbir_info->output_h);
+}
+
+static void stbir__setup(stbir__info *info, int input_w, int input_h, int output_w, int output_h, int channels)
+{
+    info->input_w = input_w;
+    info->input_h = input_h;
+    info->output_w = output_w;
+    info->output_h = output_h;
+    info->channels = channels;
+}
+
+static void stbir__calculate_transform(stbir__info *info, float s0, float t0, float s1, float t1, float *transform)
+{
+    info->s0 = s0;
+    info->t0 = t0;
+    info->s1 = s1;
+    info->t1 = t1;
+
+    if (transform)
+    {
+        info->horizontal_scale = transform[0];
+        info->vertical_scale = transform[1];
+        info->horizontal_shift = transform[2];
+        info->vertical_shift = transform[3];
+    }
+    else
+    {
+        info->horizontal_scale = ((float)info->output_w / info->input_w) / (s1 - s0);
+        info->vertical_scale = ((float)info->output_h / info->input_h) / (t1 - t0);
+
+        info->horizontal_shift = s0 * info->input_w / (s1 - s0);
+        info->vertical_shift = t0 * info->input_h / (t1 - t0);
+    }
+}
+
+static void stbir__choose_filter(stbir__info *info, stbir_filter h_filter, stbir_filter v_filter)
+{
+    if (h_filter == 0)
+        h_filter = stbir__use_upsampling(info->horizontal_scale) ? STBIR_DEFAULT_FILTER_UPSAMPLE : STBIR_DEFAULT_FILTER_DOWNSAMPLE;
+    if (v_filter == 0)
+        v_filter = stbir__use_upsampling(info->vertical_scale) ? STBIR_DEFAULT_FILTER_UPSAMPLE : STBIR_DEFAULT_FILTER_DOWNSAMPLE;
+    info->horizontal_filter = h_filter;
+    info->vertical_filter = v_filter;
+}
+
+static stbir_uint32 stbir__calculate_memory(stbir__info *info)
+{
+    int pixel_margin = stbir__get_filter_pixel_margin(info->horizontal_filter, info->horizontal_scale);
+    int filter_height = stbir__get_filter_pixel_width(info->vertical_filter, info->vertical_scale);
+
+    info->horizontal_num_contributors = stbir__get_contributors(info->horizontal_scale, info->horizontal_filter, info->input_w, info->output_w);
+    info->vertical_num_contributors = stbir__get_contributors(info->vertical_scale, info->vertical_filter, info->input_h, info->output_h);
+
+    info->horizontal_contributors_size = info->horizontal_num_contributors * sizeof(stbir__contributors);
+    info->horizontal_coefficients_size = stbir__get_total_horizontal_coefficients(info) * sizeof(float);
+    info->vertical_contributors_size = info->vertical_num_contributors * sizeof(stbir__contributors);
+    info->vertical_coefficients_size = stbir__get_total_vertical_coefficients(info) * sizeof(float);
+    info->decode_buffer_size = (info->input_w + pixel_margin * 2) * info->channels * sizeof(float);
+    info->horizontal_buffer_size = info->output_w * info->channels * sizeof(float);
+    info->ring_buffer_size = info->output_w * info->channels * filter_height * sizeof(float);
+    info->encode_buffer_size = info->output_w * info->channels * sizeof(float);
+
+    STBIR_ASSERT(info->horizontal_filter != 0);
+    STBIR_ASSERT(info->horizontal_filter < STBIR__ARRAY_SIZE(stbir__filter_info_table)); // this now happens too late
+    STBIR_ASSERT(info->vertical_filter != 0);
+    STBIR_ASSERT(info->vertical_filter < STBIR__ARRAY_SIZE(stbir__filter_info_table)); // this now happens too late
+
+    if (stbir__use_height_upsampling(info))
+        // The horizontal buffer is for when we're downsampling the height and we
+        // can't output the result of sampling the decode buffer directly into the
+        // ring buffers.
+        info->horizontal_buffer_size = 0;
+    else
+        // The encode buffer is to retain precision in the height upsampling method
+        // and isn't used when height downsampling.
+        info->encode_buffer_size = 0;
+
+    return info->horizontal_contributors_size + info->horizontal_coefficients_size + info->vertical_contributors_size + info->vertical_coefficients_size + info->decode_buffer_size + info->horizontal_buffer_size + info->ring_buffer_size + info->encode_buffer_size;
+}
+
+static int stbir__resize_allocated(stbir__info *info,
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
                                    const void *input_data, int input_stride_in_bytes,
                                    void *output_data, int output_stride_in_bytes,
                                    int alpha_channel, stbir_uint32 flags, stbir_datatype type,
                                    stbir_edge edge_horizontal, stbir_edge edge_vertical, stbir_colorspace colorspace,
                                    void *tempmem, size_t tempmem_size_in_bytes)
 {
+<<<<<<< HEAD
   size_t memory_required = stbir__calculate_memory(info);
 
   int width_stride_input = input_stride_in_bytes ? input_stride_in_bytes : info->channels * info->input_w * stbir__type_size[type];
@@ -2862,6 +4632,135 @@ static int stbir__resize_allocated(ostbir__info *info,
 #endif
 
   return 1;
+=======
+    size_t memory_required = stbir__calculate_memory(info);
+
+    int width_stride_input = input_stride_in_bytes ? input_stride_in_bytes : info->channels * info->input_w * stbir__type_size[type];
+    int width_stride_output = output_stride_in_bytes ? output_stride_in_bytes : info->channels * info->output_w * stbir__type_size[type];
+
+#ifdef STBIR_DEBUG_OVERWRITE_TEST
+#define OVERWRITE_ARRAY_SIZE 8
+    unsigned char overwrite_output_before_pre[OVERWRITE_ARRAY_SIZE];
+    unsigned char overwrite_tempmem_before_pre[OVERWRITE_ARRAY_SIZE];
+    unsigned char overwrite_output_after_pre[OVERWRITE_ARRAY_SIZE];
+    unsigned char overwrite_tempmem_after_pre[OVERWRITE_ARRAY_SIZE];
+
+    size_t begin_forbidden = width_stride_output * (info->output_h - 1) + info->output_w * info->channels * stbir__type_size[type];
+    memcpy(overwrite_output_before_pre, &((unsigned char *)output_data)[-OVERWRITE_ARRAY_SIZE], OVERWRITE_ARRAY_SIZE);
+    memcpy(overwrite_output_after_pre, &((unsigned char *)output_data)[begin_forbidden], OVERWRITE_ARRAY_SIZE);
+    memcpy(overwrite_tempmem_before_pre, &((unsigned char *)tempmem)[-OVERWRITE_ARRAY_SIZE], OVERWRITE_ARRAY_SIZE);
+    memcpy(overwrite_tempmem_after_pre, &((unsigned char *)tempmem)[tempmem_size_in_bytes], OVERWRITE_ARRAY_SIZE);
+#endif
+
+    STBIR_ASSERT(info->channels >= 0);
+    STBIR_ASSERT(info->channels <= STBIR_MAX_CHANNELS);
+
+    if (info->channels < 0 || info->channels > STBIR_MAX_CHANNELS)
+        return 0;
+
+    STBIR_ASSERT(info->horizontal_filter < STBIR__ARRAY_SIZE(stbir__filter_info_table));
+    STBIR_ASSERT(info->vertical_filter < STBIR__ARRAY_SIZE(stbir__filter_info_table));
+
+    if (info->horizontal_filter >= STBIR__ARRAY_SIZE(stbir__filter_info_table))
+        return 0;
+    if (info->vertical_filter >= STBIR__ARRAY_SIZE(stbir__filter_info_table))
+        return 0;
+
+    if (alpha_channel < 0)
+        flags |= STBIR_FLAG_ALPHA_USES_COLORSPACE | STBIR_FLAG_ALPHA_PREMULTIPLIED;
+
+    if (!(flags & STBIR_FLAG_ALPHA_USES_COLORSPACE) || !(flags & STBIR_FLAG_ALPHA_PREMULTIPLIED))
+        STBIR_ASSERT(alpha_channel >= 0 && alpha_channel < info->channels);
+
+    if (alpha_channel >= info->channels)
+        return 0;
+
+    STBIR_ASSERT(tempmem);
+
+    if (!tempmem)
+        return 0;
+
+    STBIR_ASSERT(tempmem_size_in_bytes >= memory_required);
+
+    if (tempmem_size_in_bytes < memory_required)
+        return 0;
+
+    memset(tempmem, 0, tempmem_size_in_bytes);
+
+    info->input_data = input_data;
+    info->input_stride_bytes = width_stride_input;
+
+    info->output_data = output_data;
+    info->output_stride_bytes = width_stride_output;
+
+    info->alpha_channel = alpha_channel;
+    info->flags = flags;
+    info->type = type;
+    info->edge_horizontal = edge_horizontal;
+    info->edge_vertical = edge_vertical;
+    info->colorspace = colorspace;
+
+    info->horizontal_coefficient_width = stbir__get_coefficient_width(info->horizontal_filter, info->horizontal_scale);
+    info->vertical_coefficient_width = stbir__get_coefficient_width(info->vertical_filter, info->vertical_scale);
+    info->horizontal_filter_pixel_width = stbir__get_filter_pixel_width(info->horizontal_filter, info->horizontal_scale);
+    info->vertical_filter_pixel_width = stbir__get_filter_pixel_width(info->vertical_filter, info->vertical_scale);
+    info->horizontal_filter_pixel_margin = stbir__get_filter_pixel_margin(info->horizontal_filter, info->horizontal_scale);
+    info->vertical_filter_pixel_margin = stbir__get_filter_pixel_margin(info->vertical_filter, info->vertical_scale);
+
+    info->ring_buffer_length_bytes = info->output_w * info->channels * sizeof(float);
+    info->decode_buffer_pixels = info->input_w + info->horizontal_filter_pixel_margin * 2;
+
+#define STBIR__NEXT_MEMPTR(current, newtype) (newtype *)(((unsigned char *)current) + current##_size)
+
+    info->horizontal_contributors = (stbir__contributors *)tempmem;
+    info->horizontal_coefficients = STBIR__NEXT_MEMPTR(info->horizontal_contributors, float);
+    info->vertical_contributors = STBIR__NEXT_MEMPTR(info->horizontal_coefficients, stbir__contributors);
+    info->vertical_coefficients = STBIR__NEXT_MEMPTR(info->vertical_contributors, float);
+    info->decode_buffer = STBIR__NEXT_MEMPTR(info->vertical_coefficients, float);
+
+    if (stbir__use_height_upsampling(info))
+    {
+        info->horizontal_buffer = NULL;
+        info->ring_buffer = STBIR__NEXT_MEMPTR(info->decode_buffer, float);
+        info->encode_buffer = STBIR__NEXT_MEMPTR(info->ring_buffer, float);
+
+        STBIR__DEBUG_ASSERT((size_t)STBIR__NEXT_MEMPTR(info->encode_buffer, unsigned char) == (size_t)tempmem + tempmem_size_in_bytes);
+    }
+    else
+    {
+        info->horizontal_buffer = STBIR__NEXT_MEMPTR(info->decode_buffer, float);
+        info->ring_buffer = STBIR__NEXT_MEMPTR(info->horizontal_buffer, float);
+        info->encode_buffer = NULL;
+
+        STBIR__DEBUG_ASSERT((size_t)STBIR__NEXT_MEMPTR(info->ring_buffer, unsigned char) == (size_t)tempmem + tempmem_size_in_bytes);
+    }
+
+#undef STBIR__NEXT_MEMPTR
+
+    // This signals that the ring buffer is empty
+    info->ring_buffer_begin_index = -1;
+
+    stbir__calculate_filters(info, info->horizontal_contributors, info->horizontal_coefficients, info->horizontal_filter, info->horizontal_scale, info->horizontal_shift, info->input_w, info->output_w);
+    stbir__calculate_filters(info, info->vertical_contributors, info->vertical_coefficients, info->vertical_filter, info->vertical_scale, info->vertical_shift, info->input_h, info->output_h);
+
+    STBIR_PROGRESS_REPORT(0);
+
+    if (stbir__use_height_upsampling(info))
+        stbir__buffer_loop_upsample(info);
+    else
+        stbir__buffer_loop_downsample(info);
+
+    STBIR_PROGRESS_REPORT(1);
+
+#ifdef STBIR_DEBUG_OVERWRITE_TEST
+    STBIR__DEBUG_ASSERT(memcmp(overwrite_output_before_pre, &((unsigned char *)output_data)[-OVERWRITE_ARRAY_SIZE], OVERWRITE_ARRAY_SIZE) == 0);
+    STBIR__DEBUG_ASSERT(memcmp(overwrite_output_after_pre, &((unsigned char *)output_data)[begin_forbidden], OVERWRITE_ARRAY_SIZE) == 0);
+    STBIR__DEBUG_ASSERT(memcmp(overwrite_tempmem_before_pre, &((unsigned char *)tempmem)[-OVERWRITE_ARRAY_SIZE], OVERWRITE_ARRAY_SIZE) == 0);
+    STBIR__DEBUG_ASSERT(memcmp(overwrite_tempmem_after_pre, &((unsigned char *)tempmem)[tempmem_size_in_bytes], OVERWRITE_ARRAY_SIZE) == 0);
+#endif
+
+    return 1;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 static int stbir__resize_arbitrary(
@@ -2873,6 +4772,7 @@ static int stbir__resize_arbitrary(
     stbir_filter h_filter, stbir_filter v_filter,
     stbir_edge edge_horizontal, stbir_edge edge_vertical, stbir_colorspace colorspace)
 {
+<<<<<<< HEAD
   ostbir__info info;
   int result;
   size_t memory_required;
@@ -2902,36 +4802,82 @@ static int stbir__resize_arbitrary(
   STBIR_FREE(extra_memory, alloc_context);
 
   return result;
+=======
+    stbir__info info;
+    int result;
+    size_t memory_required;
+    void *extra_memory;
+
+    stbir__setup(&info, input_w, input_h, output_w, output_h, channels);
+    stbir__calculate_transform(&info, s0, t0, s1, t1, transform);
+    stbir__choose_filter(&info, h_filter, v_filter);
+    memory_required = stbir__calculate_memory(&info);
+    extra_memory = STBIR_MALLOC(memory_required, alloc_context);
+
+    if (!extra_memory)
+        return 0;
+
+    result = stbir__resize_allocated(&info, input_data, input_stride_in_bytes,
+                                     output_data, output_stride_in_bytes,
+                                     alpha_channel, flags, type,
+                                     edge_horizontal, edge_vertical,
+                                     colorspace, extra_memory, memory_required);
+
+    STBIR_FREE(extra_memory, alloc_context);
+
+    return result;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_uint8(const unsigned char *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
                                 unsigned char *output_pixels, int output_w, int output_h, int output_stride_in_bytes,
                                 int num_channels)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, -1, 0, STBIR_TYPE_UINT8, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
                                  STBIR_EDGE_CLAMP, STBIR_EDGE_CLAMP, STBIR_COLORSPACE_LINEAR);
+=======
+    return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, -1, 0, STBIR_TYPE_UINT8, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
+                                   STBIR_EDGE_CLAMP, STBIR_EDGE_CLAMP, STBIR_COLORSPACE_LINEAR);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_float(const float *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
                                 float *output_pixels, int output_w, int output_h, int output_stride_in_bytes,
                                 int num_channels)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, -1, 0, STBIR_TYPE_FLOAT, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
                                  STBIR_EDGE_CLAMP, STBIR_EDGE_CLAMP, STBIR_COLORSPACE_LINEAR);
+=======
+    return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, -1, 0, STBIR_TYPE_FLOAT, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
+                                   STBIR_EDGE_CLAMP, STBIR_EDGE_CLAMP, STBIR_COLORSPACE_LINEAR);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_uint8_srgb(const unsigned char *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
                                      unsigned char *output_pixels, int output_w, int output_h, int output_stride_in_bytes,
                                      int num_channels, int alpha_channel, int flags)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT8, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
                                  STBIR_EDGE_CLAMP, STBIR_EDGE_CLAMP, STBIR_COLORSPACE_SRGB);
+=======
+    return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT8, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
+                                   STBIR_EDGE_CLAMP, STBIR_EDGE_CLAMP, STBIR_COLORSPACE_SRGB);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_uint8_srgb_edgemode(const unsigned char *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -2939,10 +4885,17 @@ STBIRDEF int stbir_resize_uint8_srgb_edgemode(const unsigned char *input_pixels,
                                               int num_channels, int alpha_channel, int flags,
                                               stbir_edge edge_wrap_mode)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT8, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
                                  edge_wrap_mode, edge_wrap_mode, STBIR_COLORSPACE_SRGB);
+=======
+    return stbir__resize_arbitrary(NULL, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT8, STBIR_FILTER_DEFAULT, STBIR_FILTER_DEFAULT,
+                                   edge_wrap_mode, edge_wrap_mode, STBIR_COLORSPACE_SRGB);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_uint8_generic(const unsigned char *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -2951,10 +4904,17 @@ STBIRDEF int stbir_resize_uint8_generic(const unsigned char *input_pixels, int i
                                         stbir_edge edge_wrap_mode, stbir_filter filter, stbir_colorspace space,
                                         void *alloc_context)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT8, filter, filter,
                                  edge_wrap_mode, edge_wrap_mode, space);
+=======
+    return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT8, filter, filter,
+                                   edge_wrap_mode, edge_wrap_mode, space);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_uint16_generic(const stbir_uint16 *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -2963,10 +4923,17 @@ STBIRDEF int stbir_resize_uint16_generic(const stbir_uint16 *input_pixels, int i
                                          stbir_edge edge_wrap_mode, stbir_filter filter, stbir_colorspace space,
                                          void *alloc_context)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT16, filter, filter,
                                  edge_wrap_mode, edge_wrap_mode, space);
+=======
+    return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_UINT16, filter, filter,
+                                   edge_wrap_mode, edge_wrap_mode, space);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_float_generic(const float *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -2975,10 +4942,17 @@ STBIRDEF int stbir_resize_float_generic(const float *input_pixels, int input_w, 
                                         stbir_edge edge_wrap_mode, stbir_filter filter, stbir_colorspace space,
                                         void *alloc_context)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_FLOAT, filter, filter,
                                  edge_wrap_mode, edge_wrap_mode, space);
+=======
+    return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, STBIR_TYPE_FLOAT, filter, filter,
+                                   edge_wrap_mode, edge_wrap_mode, space);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize(const void *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -2989,10 +4963,17 @@ STBIRDEF int stbir_resize(const void *input_pixels, int input_w, int input_h, in
                           stbir_filter filter_horizontal, stbir_filter filter_vertical,
                           stbir_colorspace space, void *alloc_context)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, datatype, filter_horizontal, filter_vertical,
                                  edge_mode_horizontal, edge_mode_vertical, space);
+=======
+    return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, NULL, num_channels, alpha_channel, flags, datatype, filter_horizontal, filter_vertical,
+                                   edge_mode_horizontal, edge_mode_vertical, space);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_subpixel(const void *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -3005,6 +4986,7 @@ STBIRDEF int stbir_resize_subpixel(const void *input_pixels, int input_w, int in
                                    float x_scale, float y_scale,
                                    float x_offset, float y_offset)
 {
+<<<<<<< HEAD
   float transform[4];
   transform[0] = x_scale;
   transform[1] = y_scale;
@@ -3014,6 +4996,17 @@ STBIRDEF int stbir_resize_subpixel(const void *input_pixels, int input_w, int in
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  0, 0, 1, 1, transform, num_channels, alpha_channel, flags, datatype, filter_horizontal, filter_vertical,
                                  edge_mode_horizontal, edge_mode_vertical, space);
+=======
+    float transform[4];
+    transform[0] = x_scale;
+    transform[1] = y_scale;
+    transform[2] = x_offset;
+    transform[3] = y_offset;
+    return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   0, 0, 1, 1, transform, num_channels, alpha_channel, flags, datatype, filter_horizontal, filter_vertical,
+                                   edge_mode_horizontal, edge_mode_vertical, space);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 }
 
 STBIRDEF int stbir_resize_region(const void *input_pixels, int input_w, int input_h, int input_stride_in_bytes,
@@ -3025,6 +5018,7 @@ STBIRDEF int stbir_resize_region(const void *input_pixels, int input_w, int inpu
                                  stbir_colorspace space, void *alloc_context,
                                  float s0, float t0, float s1, float t1)
 {
+<<<<<<< HEAD
   return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
                                  output_pixels, output_w, output_h, output_stride_in_bytes,
                                  s0, t0, s1, t1, NULL, num_channels, alpha_channel, flags, datatype, filter_horizontal, filter_vertical,
@@ -3074,3 +5068,12 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ------------------------------------------------------------------------------
 */
+=======
+    return stbir__resize_arbitrary(alloc_context, input_pixels, input_w, input_h, input_stride_in_bytes,
+                                   output_pixels, output_w, output_h, output_stride_in_bytes,
+                                   s0, t0, s1, t1, NULL, num_channels, alpha_channel, flags, datatype, filter_horizontal, filter_vertical,
+                                   edge_mode_horizontal, edge_mode_vertical, space);
+}
+
+#endif // STB_IMAGE_RESIZE_IMPLEMENTATION
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d

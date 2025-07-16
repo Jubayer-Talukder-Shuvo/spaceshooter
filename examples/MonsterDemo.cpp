@@ -10,7 +10,11 @@ enum
 	JUMP
 };
 int pic_x, pic_y;
+<<<<<<< HEAD
 int m_state = IDLE;
+=======
+int state = IDLE;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 int direction = 1; // 1 for right, -1 for left
 
 Image idleMonster[4], walkMonster[6], jumpMonster[8];
@@ -22,7 +26,11 @@ void loadResources()
 	iLoadFramesFromSheet(walkMonster, "assets/images/sprites/1 Pink_Monster/Pink_Monster_Walk_6.png", 1, 6);
 	iLoadFramesFromSheet(jumpMonster, "assets/images/sprites/1 Pink_Monster/Pink_Monster_Jump_8.png", 1, 8);
 
+<<<<<<< HEAD
 	iInitSprite(&monster);
+=======
+	iInitSprite(&monster, -1);
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 	iChangeSpriteFrames(&monster, idleMonster, 4);
 	iSetSpritePosition(&monster, 20, 0);
 	iScaleSprite(&monster, 3.0);
@@ -30,7 +38,11 @@ void loadResources()
 
 void updateMonster()
 {
+<<<<<<< HEAD
 	switch (m_state)
+=======
+	switch (state)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 	{
 	case IDLE:
 		break;
@@ -39,7 +51,11 @@ void updateMonster()
 	case JUMP:
 		if (monster.y == 0)
 		{
+<<<<<<< HEAD
 			m_state = IDLE;
+=======
+			state = IDLE;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 			iChangeSpriteFrames(&monster, idleMonster, 4);
 		}
 		break;
@@ -104,7 +120,11 @@ void iMouse(int button, int state, int mx, int my)
 	function iKeyboard() is called whenever the user hits a key in keyboard.
 	key- holds the ASCII value of the key pressed.
 */
+<<<<<<< HEAD
 void iKeyboard(unsigned char key, int state)
+=======
+void iKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 	if (key == 'x')
 	{
@@ -123,7 +143,11 @@ void iKeyboard(unsigned char key, int state)
 	GLUT_KEY_LEFT, GLUT_KEY_UP, GLUT_KEY_RIGHT, GLUT_KEY_DOWN, GLUT_KEY_PAGE UP,
 	GLUT_KEY_PAGE DOWN, GLUT_KEY_HOME, GLUT_KEY_END, GLUT_KEY_INSERT
 */
+<<<<<<< HEAD
 void iSpecialKeyboard(unsigned char key, int state)
+=======
+void iSpecialKeyboard(unsigned char key)
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 {
 
 	if (key == GLUT_KEY_END)
@@ -140,9 +164,15 @@ void iSpecialKeyboard(unsigned char key, int state)
 		else
 		{
 			monster.x--;
+<<<<<<< HEAD
 			if (m_state != WALK)
 			{
 				m_state = WALK;
+=======
+			if (state != WALK)
+			{
+				state = WALK;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 				iChangeSpriteFrames(&monster, walkMonster, 6);
 			}
 		}
@@ -157,9 +187,15 @@ void iSpecialKeyboard(unsigned char key, int state)
 		else
 		{
 			monster.x++;
+<<<<<<< HEAD
 			if (m_state != WALK)
 			{
 				m_state = WALK;
+=======
+			if (state != WALK)
+			{
+				state = WALK;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 				iChangeSpriteFrames(&monster, walkMonster, 6);
 			}
 		}
@@ -167,9 +203,15 @@ void iSpecialKeyboard(unsigned char key, int state)
 	if (key == GLUT_KEY_UP)
 	{
 		monster.y++;
+<<<<<<< HEAD
 		if (m_state != JUMP)
 		{
 			m_state = JUMP;
+=======
+		if (state != JUMP)
+		{
+			state = JUMP;
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 			iChangeSpriteFrames(&monster, jumpMonster, 8);
 		}
 	}
@@ -183,8 +225,15 @@ void iSpecialKeyboard(unsigned char key, int state)
 int main(int argc, char *argv[])
 {
 	glutInit(&argc, argv);
+<<<<<<< HEAD
 	loadResources();
 	iSetTimer(100, updateMonster);
 	iOpenWindow(500, 400, "SpriteDemo");
+=======
+	// place your own initialization codes here.
+	loadResources();
+	iSetTimer(100, updateMonster);
+	iInitialize(500, 400, "SpriteDemo");
+>>>>>>> 95328ce8b4c17ad6b51c6f9217fc5463d054fb7d
 	return 0;
 }
