@@ -13,6 +13,14 @@ This is a 2D space shooter game built in C using Igraphics. The player controls 
 
 ---
 
+## How to Run the Game
+1. Open a terminal and navigate to the directory containing the source code.
+2. Compile and run the program using the following command:
+
+   ```bash
+   ./runner.bat iMain.cpp
+
+
 ## 🎬 Gameplay Demo
 
 Watch the video demonstration of our game on YouTube:
@@ -36,6 +44,3 @@ Watch the video demonstration of our game on YouTube:
 - **Modern iGraphics Library**
 
 ---
-
-gcc main.c -o game -lSDL2 -lGL
-./game
