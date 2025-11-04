@@ -4,6 +4,13 @@ This is a 2D space shooter game built in C using Igraphics. The player controls 
 
 ---
 
+## 🎬 Gameplay Demo
+
+Watch the video demonstration of our game on YouTube:
+
+[![Watch on YouTube](https://img.youtube.com/vi/3_SZ8_YM3ds/0.jpg)](https://youtu.be/3_SZ8_YM3ds?si=Ku3hyqcU_ZwpYu1V)
+
+
 ### 👨‍💻 Created by
 - **Jubayer Talukder Shuvo**
 - **Nazmus Sakib Toha**
@@ -13,12 +20,6 @@ This is a 2D space shooter game built in C using Igraphics. The player controls 
 
 ---
 
-
-## 🎬 Gameplay Demo
-
-Watch the video demonstration of our game on YouTube:
-
-[![Watch on YouTube](https://img.youtube.com/vi/3_SZ8_YM3ds/0.jpg)](https://youtu.be/3_SZ8_YM3ds?si=Ku3hyqcU_ZwpYu1V)
 
 ---
 
